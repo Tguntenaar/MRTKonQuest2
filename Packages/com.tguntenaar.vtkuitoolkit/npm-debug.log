@@ -1,0 +1,265 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Web\\External\\Node.exe',
+1 verbose cli   'C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Web\\External\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@3.3.4
+3 info using node@v5.4.1
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly install normalizeTree
+8 silly loadCurrentTree Finishing
+9 silly loadIdealTree Starting
+10 silly install loadIdealTree
+11 silly cloneCurrentTree Starting
+12 silly install cloneCurrentTreeToIdealTree
+13 silly cloneCurrentTree Finishing
+14 silly loadShrinkwrap Starting
+15 silly install loadShrinkwrap
+16 silly loadShrinkwrap Finishing
+17 silly loadAllDepsIntoIdealTree Starting
+18 silly install loadAllDepsIntoIdealTree
+19 silly fetchNamedPackageData com.microsoft.mixedreality.toolkit.tools
+20 silly mapToRegistry name com.microsoft.mixedreality.toolkit.tools
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry uri https://registry.npmjs.org/com.microsoft.mixedreality.toolkit.tools
+24 silly fetchNamedPackageData com.microsoft.mixedreality.toolkit.foundation
+25 silly mapToRegistry name com.microsoft.mixedreality.toolkit.foundation
+26 silly mapToRegistry using default registry
+27 silly mapToRegistry registry https://registry.npmjs.org/
+28 silly mapToRegistry uri https://registry.npmjs.org/com.microsoft.mixedreality.toolkit.foundation
+29 silly fetchNamedPackageData com.microsoft.mixedreality.toolkit.standardassets
+30 silly mapToRegistry name com.microsoft.mixedreality.toolkit.standardassets
+31 silly mapToRegistry using default registry
+32 silly mapToRegistry registry https://registry.npmjs.org/
+33 silly mapToRegistry uri https://registry.npmjs.org/com.microsoft.mixedreality.toolkit.standardassets
+34 silly fetchNamedPackageData com.microsoft.mixedreality.toolkit.extensions
+35 silly mapToRegistry name com.microsoft.mixedreality.toolkit.extensions
+36 silly mapToRegistry using default registry
+37 silly mapToRegistry registry https://registry.npmjs.org/
+38 silly mapToRegistry uri https://registry.npmjs.org/com.microsoft.mixedreality.toolkit.extensions
+39 silly fetchNamedPackageData com.microsoft.mixedreality.toolkit.examples
+40 silly mapToRegistry name com.microsoft.mixedreality.toolkit.examples
+41 silly mapToRegistry using default registry
+42 silly mapToRegistry registry https://registry.npmjs.org/
+43 silly mapToRegistry uri https://registry.npmjs.org/com.microsoft.mixedreality.toolkit.examples
+44 verbose request uri https://registry.npmjs.org/com.microsoft.mixedreality.toolkit.tools
+45 verbose request no auth needed
+46 info attempt registry request try #1 at 11:18:56 AM
+47 verbose request id b7df20fdca88d609
+48 http request GET https://registry.npmjs.org/com.microsoft.mixedreality.toolkit.tools
+49 verbose request uri https://registry.npmjs.org/com.microsoft.mixedreality.toolkit.foundation
+50 verbose request no auth needed
+51 info attempt registry request try #1 at 11:18:56 AM
+52 http request GET https://registry.npmjs.org/com.microsoft.mixedreality.toolkit.foundation
+53 verbose request uri https://registry.npmjs.org/com.microsoft.mixedreality.toolkit.standardassets
+54 verbose request no auth needed
+55 info attempt registry request try #1 at 11:18:56 AM
+56 http request GET https://registry.npmjs.org/com.microsoft.mixedreality.toolkit.standardassets
+57 verbose request uri https://registry.npmjs.org/com.microsoft.mixedreality.toolkit.extensions
+58 verbose request no auth needed
+59 info attempt registry request try #1 at 11:18:56 AM
+60 http request GET https://registry.npmjs.org/com.microsoft.mixedreality.toolkit.extensions
+61 verbose request uri https://registry.npmjs.org/com.microsoft.mixedreality.toolkit.examples
+62 verbose request no auth needed
+63 info attempt registry request try #1 at 11:18:56 AM
+64 http request GET https://registry.npmjs.org/com.microsoft.mixedreality.toolkit.examples
+65 http 404 https://registry.npmjs.org/com.microsoft.mixedreality.toolkit.examples
+66 verbose headers { date: 'Wed, 10 Nov 2021 10:17:51 GMT',
+66 verbose headers   'content-type': 'application/json',
+66 verbose headers   'content-length': '21',
+66 verbose headers   connection: 'keep-alive',
+66 verbose headers   'cf-ray': '6abe888d1de56b30-AMS',
+66 verbose headers   vary: 'Accept-Encoding',
+66 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+66 verbose headers   server: 'cloudflare' }
+67 silly get cb [ 404,
+67 silly get   { date: 'Wed, 10 Nov 2021 10:17:51 GMT',
+67 silly get     'content-type': 'application/json',
+67 silly get     'content-length': '21',
+67 silly get     connection: 'keep-alive',
+67 silly get     'cf-ray': '6abe888d1de56b30-AMS',
+67 silly get     vary: 'Accept-Encoding',
+67 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+67 silly get     server: 'cloudflare' } ]
+68 silly fetchPackageMetaData Error: Not found : com.microsoft.mixedreality.toolkit.examples
+68 silly fetchPackageMetaData     at makeError (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\npm-registry-client\lib\request.js:264:12)
+68 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\npm-registry-client\lib\request.js:252:14)
+68 silly fetchPackageMetaData     at Request._callback (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\npm-registry-client\lib\request.js:172:14)
+68 silly fetchPackageMetaData     at Request.self.callback (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\request\request.js:344:22)
+68 silly fetchPackageMetaData     at emitTwo (events.js:87:13)
+68 silly fetchPackageMetaData     at Request.emit (events.js:172:7)
+68 silly fetchPackageMetaData     at Request.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\request\request.js:1239:14)
+68 silly fetchPackageMetaData     at emitOne (events.js:82:20)
+68 silly fetchPackageMetaData     at Request.emit (events.js:169:7)
+68 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\request\request.js:1187:12)
+68 silly fetchPackageMetaData  error for com.microsoft.mixedreality.toolkit.examples@2.7.2 { [Error: Not found : com.microsoft.mixedreality.toolkit.examples]
+68 silly fetchPackageMetaData   pkgid: 'com.microsoft.mixedreality.toolkit.examples',
+68 silly fetchPackageMetaData   statusCode: 404,
+68 silly fetchPackageMetaData   code: 'E404' }
+69 http 404 https://registry.npmjs.org/com.microsoft.mixedreality.toolkit.foundation
+70 verbose headers { date: 'Wed, 10 Nov 2021 10:17:51 GMT',
+70 verbose headers   'content-type': 'application/json',
+70 verbose headers   'content-length': '21',
+70 verbose headers   connection: 'keep-alive',
+70 verbose headers   'cf-ray': '6abe888d1f0d0b7c-AMS',
+70 verbose headers   vary: 'Accept-Encoding',
+70 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+70 verbose headers   server: 'cloudflare' }
+71 silly get cb [ 404,
+71 silly get   { date: 'Wed, 10 Nov 2021 10:17:51 GMT',
+71 silly get     'content-type': 'application/json',
+71 silly get     'content-length': '21',
+71 silly get     connection: 'keep-alive',
+71 silly get     'cf-ray': '6abe888d1f0d0b7c-AMS',
+71 silly get     vary: 'Accept-Encoding',
+71 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+71 silly get     server: 'cloudflare' } ]
+72 silly fetchPackageMetaData Error: Not found : com.microsoft.mixedreality.toolkit.foundation
+72 silly fetchPackageMetaData     at makeError (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\npm-registry-client\lib\request.js:264:12)
+72 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\npm-registry-client\lib\request.js:252:14)
+72 silly fetchPackageMetaData     at Request._callback (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\npm-registry-client\lib\request.js:172:14)
+72 silly fetchPackageMetaData     at Request.self.callback (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\request\request.js:344:22)
+72 silly fetchPackageMetaData     at emitTwo (events.js:87:13)
+72 silly fetchPackageMetaData     at Request.emit (events.js:172:7)
+72 silly fetchPackageMetaData     at Request.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\request\request.js:1239:14)
+72 silly fetchPackageMetaData     at emitOne (events.js:82:20)
+72 silly fetchPackageMetaData     at Request.emit (events.js:169:7)
+72 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\request\request.js:1187:12)
+72 silly fetchPackageMetaData  error for com.microsoft.mixedreality.toolkit.foundation@2.7.2 { [Error: Not found : com.microsoft.mixedreality.toolkit.foundation]
+72 silly fetchPackageMetaData   pkgid: 'com.microsoft.mixedreality.toolkit.foundation',
+72 silly fetchPackageMetaData   statusCode: 404,
+72 silly fetchPackageMetaData   code: 'E404' }
+73 http 404 https://registry.npmjs.org/com.microsoft.mixedreality.toolkit.tools
+74 verbose headers { date: 'Wed, 10 Nov 2021 10:17:51 GMT',
+74 verbose headers   'content-type': 'application/json',
+74 verbose headers   'content-length': '21',
+74 verbose headers   connection: 'keep-alive',
+74 verbose headers   'cf-ray': '6abe888d1fa041a8-AMS',
+74 verbose headers   vary: 'Accept-Encoding',
+74 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+74 verbose headers   server: 'cloudflare' }
+75 silly get cb [ 404,
+75 silly get   { date: 'Wed, 10 Nov 2021 10:17:51 GMT',
+75 silly get     'content-type': 'application/json',
+75 silly get     'content-length': '21',
+75 silly get     connection: 'keep-alive',
+75 silly get     'cf-ray': '6abe888d1fa041a8-AMS',
+75 silly get     vary: 'Accept-Encoding',
+75 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+75 silly get     server: 'cloudflare' } ]
+76 silly fetchPackageMetaData Error: Not found : com.microsoft.mixedreality.toolkit.tools
+76 silly fetchPackageMetaData     at makeError (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\npm-registry-client\lib\request.js:264:12)
+76 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\npm-registry-client\lib\request.js:252:14)
+76 silly fetchPackageMetaData     at Request._callback (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\npm-registry-client\lib\request.js:172:14)
+76 silly fetchPackageMetaData     at Request.self.callback (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\request\request.js:344:22)
+76 silly fetchPackageMetaData     at emitTwo (events.js:87:13)
+76 silly fetchPackageMetaData     at Request.emit (events.js:172:7)
+76 silly fetchPackageMetaData     at Request.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\request\request.js:1239:14)
+76 silly fetchPackageMetaData     at emitOne (events.js:82:20)
+76 silly fetchPackageMetaData     at Request.emit (events.js:169:7)
+76 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\request\request.js:1187:12)
+76 silly fetchPackageMetaData  error for com.microsoft.mixedreality.toolkit.tools@2.7.2 { [Error: Not found : com.microsoft.mixedreality.toolkit.tools]
+76 silly fetchPackageMetaData   pkgid: 'com.microsoft.mixedreality.toolkit.tools',
+76 silly fetchPackageMetaData   statusCode: 404,
+76 silly fetchPackageMetaData   code: 'E404' }
+77 http 404 https://registry.npmjs.org/com.microsoft.mixedreality.toolkit.standardassets
+78 verbose headers { date: 'Wed, 10 Nov 2021 10:17:51 GMT',
+78 verbose headers   'content-type': 'application/json',
+78 verbose headers   'content-length': '21',
+78 verbose headers   connection: 'keep-alive',
+78 verbose headers   'cf-ray': '6abe888d1bd91fd2-AMS',
+78 verbose headers   vary: 'Accept-Encoding',
+78 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+78 verbose headers   server: 'cloudflare' }
+79 silly get cb [ 404,
+79 silly get   { date: 'Wed, 10 Nov 2021 10:17:51 GMT',
+79 silly get     'content-type': 'application/json',
+79 silly get     'content-length': '21',
+79 silly get     connection: 'keep-alive',
+79 silly get     'cf-ray': '6abe888d1bd91fd2-AMS',
+79 silly get     vary: 'Accept-Encoding',
+79 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+79 silly get     server: 'cloudflare' } ]
+80 silly fetchPackageMetaData Error: Not found : com.microsoft.mixedreality.toolkit.standardassets
+80 silly fetchPackageMetaData     at makeError (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\npm-registry-client\lib\request.js:264:12)
+80 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\npm-registry-client\lib\request.js:252:14)
+80 silly fetchPackageMetaData     at Request._callback (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\npm-registry-client\lib\request.js:172:14)
+80 silly fetchPackageMetaData     at Request.self.callback (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\request\request.js:344:22)
+80 silly fetchPackageMetaData     at emitTwo (events.js:87:13)
+80 silly fetchPackageMetaData     at Request.emit (events.js:172:7)
+80 silly fetchPackageMetaData     at Request.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\request\request.js:1239:14)
+80 silly fetchPackageMetaData     at emitOne (events.js:82:20)
+80 silly fetchPackageMetaData     at Request.emit (events.js:169:7)
+80 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\request\request.js:1187:12)
+80 silly fetchPackageMetaData  error for com.microsoft.mixedreality.toolkit.standardassets@2.7.2 { [Error: Not found : com.microsoft.mixedreality.toolkit.standardassets]
+80 silly fetchPackageMetaData   pkgid: 'com.microsoft.mixedreality.toolkit.standardassets',
+80 silly fetchPackageMetaData   statusCode: 404,
+80 silly fetchPackageMetaData   code: 'E404' }
+81 http 404 https://registry.npmjs.org/com.microsoft.mixedreality.toolkit.extensions
+82 verbose headers { date: 'Wed, 10 Nov 2021 10:17:51 GMT',
+82 verbose headers   'content-type': 'application/json',
+82 verbose headers   'content-length': '21',
+82 verbose headers   connection: 'keep-alive',
+82 verbose headers   'cf-ray': '6abe888d1a0a4c7a-AMS',
+82 verbose headers   vary: 'Accept-Encoding',
+82 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+82 verbose headers   server: 'cloudflare' }
+83 silly get cb [ 404,
+83 silly get   { date: 'Wed, 10 Nov 2021 10:17:51 GMT',
+83 silly get     'content-type': 'application/json',
+83 silly get     'content-length': '21',
+83 silly get     connection: 'keep-alive',
+83 silly get     'cf-ray': '6abe888d1a0a4c7a-AMS',
+83 silly get     vary: 'Accept-Encoding',
+83 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+83 silly get     server: 'cloudflare' } ]
+84 silly fetchPackageMetaData Error: Not found : com.microsoft.mixedreality.toolkit.extensions
+84 silly fetchPackageMetaData     at makeError (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\npm-registry-client\lib\request.js:264:12)
+84 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\npm-registry-client\lib\request.js:252:14)
+84 silly fetchPackageMetaData     at Request._callback (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\npm-registry-client\lib\request.js:172:14)
+84 silly fetchPackageMetaData     at Request.self.callback (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\request\request.js:344:22)
+84 silly fetchPackageMetaData     at emitTwo (events.js:87:13)
+84 silly fetchPackageMetaData     at Request.emit (events.js:172:7)
+84 silly fetchPackageMetaData     at Request.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\request\request.js:1239:14)
+84 silly fetchPackageMetaData     at emitOne (events.js:82:20)
+84 silly fetchPackageMetaData     at Request.emit (events.js:169:7)
+84 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\request\request.js:1187:12)
+84 silly fetchPackageMetaData  error for com.microsoft.mixedreality.toolkit.extensions@2.7.2 { [Error: Not found : com.microsoft.mixedreality.toolkit.extensions]
+84 silly fetchPackageMetaData   pkgid: 'com.microsoft.mixedreality.toolkit.extensions',
+84 silly fetchPackageMetaData   statusCode: 404,
+84 silly fetchPackageMetaData   code: 'E404' }
+85 silly rollbackFailedOptional Starting
+86 silly rollbackFailedOptional Finishing
+87 silly runTopLevelLifecycles Starting
+88 silly runTopLevelLifecycles Finishing
+89 silly install printInstalled
+90 verbose stack Error: Not found : com.microsoft.mixedreality.toolkit.examples
+90 verbose stack     at makeError (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\npm-registry-client\lib\request.js:264:12)
+90 verbose stack     at CachingRegistryClient.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\npm-registry-client\lib\request.js:252:14)
+90 verbose stack     at Request._callback (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\npm-registry-client\lib\request.js:172:14)
+90 verbose stack     at Request.self.callback (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\request\request.js:344:22)
+90 verbose stack     at emitTwo (events.js:87:13)
+90 verbose stack     at Request.emit (events.js:172:7)
+90 verbose stack     at Request.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\request\request.js:1239:14)
+90 verbose stack     at emitOne (events.js:82:20)
+90 verbose stack     at Request.emit (events.js:169:7)
+90 verbose stack     at IncomingMessage.<anonymous> (C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Web\External\node_modules\request\request.js:1187:12)
+91 verbose statusCode 404
+92 verbose pkgid com.microsoft.mixedreality.toolkit.examples
+93 verbose cwd C:\Users\thomasguntenaar\Desktop\Scriptie\Code\MRTKonQuest2\Packages\com.tguntenaar.vtkuitoolkit
+94 error Windows_NT 10.0.19042
+95 error argv "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Web\\External\\Node.exe" "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Web\\External\\node_modules\\npm\\bin\\npm-cli.js" "install"
+96 error node v5.4.1
+97 error npm  v3.3.4
+98 error code E404
+99 error 404 Not found : com.microsoft.mixedreality.toolkit.examples
+99 error 404
+99 error 404 'com.microsoft.mixedreality.toolkit.examples' is not in the npm registry.
+99 error 404 You should bug the author to publish it (or use the name yourself!)
+99 error 404 It was specified as a dependency of 'com.tguntenaar.vtkuitoolkit'
+99 error 404
+99 error 404 Note that you can also install from a
+99 error 404 tarball, folder, http url, or git url.
+100 verbose exit [ 1, true ]

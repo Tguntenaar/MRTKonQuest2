@@ -1,0 +1,27 @@
+{
+  "name": "com.tguntenaar.vtkunitymrtkui",
+  "version": "0.0.1",
+  "displayName": "VTK Unity UI",
+  "description": "An MRTK UI to change scientifc 3D data, like VTK objects, inside a virtual environment",
+  "unity": "2020.3",
+  "documentationUrl": "https://example.com/",
+  "changelogUrl": "https://example.com/changelog.html",
+  "licensesUrl": "https://example.com/licensing.html",
+  "dependencies": {
+    "com.microsoft.mixedreality.toolkit.tools": "2.7.2",
+    "com.microsoft.mixedreality.toolkit.foundation": "2.7.2",
+    "com.microsoft.mixedreality.toolkit.standardassets": "2.7.2",
+    "com.microsoft.mixedreality.toolkit.extensions": "2.7.2",
+    "com.microsoft.mixedreality.toolkit.examples": "2.7.2"
+  },
+  "keywords": [
+    "VTK",
+    "UI",
+    "Scientific"
+  ],
+  "author": {
+    "name": "TGuntenaar",
+    "email": "thomas@guntenaar.org",
+    "url": "https://www.guntenaar.org"
+  }
+}
