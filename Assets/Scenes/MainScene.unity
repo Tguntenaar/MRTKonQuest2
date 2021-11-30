@@ -17150,6 +17150,7 @@ GameObject:
   - component: {fileID: 419373754}
   - component: {fileID: 419373753}
   - component: {fileID: 419373752}
+  - component: {fileID: 419373757}
   m_Layer: 0
   m_Name: RangeFilter
   m_TagString: FilterBox
@@ -17172,7 +17173,7 @@ Transform:
   - {fileID: 1366778454}
   - {fileID: 621150169}
   m_Father: {fileID: 143422375540732620}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &419373752
 BoxCollider:
@@ -17246,14 +17247,38 @@ MonoBehaviour:
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 419373757}
+        m_TargetAssemblyTypeName: ManipulationEventListener, Assembly-CSharp
+        m_MethodName: CheckIfAlreadyInPipeline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onManipulationEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 143422376070079518}
-        m_TargetAssemblyTypeName: Dropzone, Assembly-CSharp
-        m_MethodName: DropInZone
-        m_Mode: 1
+      - m_Target: {fileID: 419373757}
+        m_TargetAssemblyTypeName: ManipulationEventListener, Assembly-CSharp
+        m_MethodName: DropInitiatedPrefabBackInExitZone
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 419373757}
+        m_TargetAssemblyTypeName: ManipulationEventListener, Assembly-CSharp
+        m_MethodName: DropInitiatedPrefabInZone
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -17282,6 +17307,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoConstraintSelection: 1
   selectedConstraints: []
+--- !u!114 &419373757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419373750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a627d88e651336d4c861b0e776943c3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exitZonePrefab: {fileID: 323914999}
 --- !u!1 &421546810
 GameObject:
   m_ObjectHideFlags: 0
@@ -48014,6 +48052,181 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262049823}
   m_CullTransparentMesh: 0
+--- !u!21 &1262696508
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MixedRealityKeyboardPreviewCaret (Instance)
+  m_Shader: {fileID: 4800000, guid: 5bdea20278144b11916d77503ba1467a, type: 3}
+  m_ShaderKeywords: _ALPHABLEND_ON _CLIPPING_BOX _DISABLE_ALBEDO_MAP _IGNORE_Z_SCALE
+    _ROUND_CORNERS
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Fade
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ChannelMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _IridescentSpectrumMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AlbedoAlphaMode: 0
+    - _AlbedoAssignedAtRuntime: 0
+    - _BlendOp: 0
+    - _BlendedClippingWidth: 0
+    - _BorderLight: 0
+    - _BorderLightOpaque: 0
+    - _BorderLightOpaqueAlpha: 1
+    - _BorderLightReplacesAlbedo: 0
+    - _BorderLightUsesHoverColor: 0
+    - _BorderMinValue: 0.1
+    - _BorderWidth: 0.1
+    - _BumpScale: 1
+    - _ClippingBorder: 0
+    - _ClippingBorderWidth: 0.025
+    - _ColorWriteMask: 15
+    - _CullMode: 2
+    - _CustomMode: 2
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DirectionalLight: 0
+    - _DstBlend: 10
+    - _EdgeSmoothingValue: 0.00008
+    - _EnableChannelMap: 0
+    - _EnableEmission: 0
+    - _EnableHoverColorOverride: 0
+    - _EnableLocalSpaceTriplanarMapping: 0
+    - _EnableNormalMap: 0
+    - _EnableProximityLightColorOverride: 0
+    - _EnableSSAA: 0
+    - _EnableTriplanarMapping: 0
+    - _EnvironmentColorIntensity: 0.5
+    - _EnvironmentColorThreshold: 1.5
+    - _EnvironmentColoring: 0
+    - _FadeBeginDistance: 0.85
+    - _FadeCompleteDistance: 0.5
+    - _FadeMinValue: 0
+    - _FluentLightIntensity: 1
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _HoverLight: 0
+    - _IgnoreZScale: 1
+    - _IndependentCorners: 0
+    - _InnerGlow: 0
+    - _InnerGlowPower: 4
+    - _InstancedColor: 0
+    - _Iridescence: 0
+    - _IridescenceAngle: -0.78
+    - _IridescenceIntensity: 0.5
+    - _IridescenceThreshold: 0.05
+    - _Metallic: 0
+    - _MipmapBias: -2
+    - _Mode: 3
+    - _NearLightFade: 0
+    - _NearPlaneFade: 0
+    - _NormalMapScale: 1
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _ProximityLight: 0
+    - _ProximityLightSubtractive: 0
+    - _ProximityLightTwoSided: 0
+    - _Reflections: 0
+    - _Refraction: 0
+    - _RefractiveIndex: 0
+    - _RenderQueueOverride: -1
+    - _RimLight: 0
+    - _RimPower: 0.25
+    - _RoundCornerMargin: 0.123
+    - _RoundCornerRadius: 0.5
+    - _RoundCorners: 1
+    - _Smoothness: 0.5
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 0
+    - _SphericalHarmonics: 0
+    - _SrcBlend: 1
+    - _Stencil: 0
+    - _StencilComparison: 0
+    - _StencilOperation: 0
+    - _StencilReference: 0
+    - _TriplanarMappingBlendSharpness: 4
+    - _UVSec: 0
+    - _VertexColors: 0
+    - _VertexExtrusion: 0
+    - _VertexExtrusionSmoothNormals: 0
+    - _VertexExtrusionValue: 0
+    - _ZOffsetFactor: 0
+    - _ZOffsetUnits: 0
+    - _ZTest: 4
+    - _ZWrite: 0
+    m_Colors:
+    - _ClippingBorderColor: {r: 1, g: 0.2, b: 0, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EnvironmentColorX: {r: 1, g: 0, b: 0, a: 1}
+    - _EnvironmentColorY: {r: 0, g: 1, b: 0, a: 1}
+    - _EnvironmentColorZ: {r: 0, g: 0, b: 1, a: 1}
+    - _HoverColorOverride: {r: 1, g: 1, b: 1, a: 1}
+    - _InnerGlowColor: {r: 1, g: 1, b: 1, a: 0.75}
+    - _ProximityLightCenterColorOverride: {r: 1, g: 0, b: 0, a: 0}
+    - _ProximityLightMiddleColorOverride: {r: 0, g: 1, b: 0, a: 0.5}
+    - _ProximityLightOuterColorOverride: {r: 0, g: 0, b: 1, a: 1}
+    - _RimColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _RoundCornersRadius: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+  m_BuildTextureStacks: []
 --- !u!114 &1263502937 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8714176983626160909, guid: ffbe4bef620a0a542bb77fe2f765c905, type: 3}
@@ -49878,6 +50091,7 @@ Transform:
   - {fileID: 1426737641}
   - {fileID: 143422375540732620}
   - {fileID: 1856002451}
+  - {fileID: 1654808746}
   m_Father: {fileID: 1698852960}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -55509,181 +55723,6 @@ MonoBehaviour:
   farGrowRate: 0.3
   mediumGrowRate: 0.2
   closeGrowRate: 0.3
---- !u!21 &1479829299
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: MixedRealityKeyboardPreviewCaret (Instance)
-  m_Shader: {fileID: 4800000, guid: 5bdea20278144b11916d77503ba1467a, type: 3}
-  m_ShaderKeywords: _ALPHABLEND_ON _CLIPPING_BOX _DISABLE_ALBEDO_MAP _IGNORE_Z_SCALE
-    _ROUND_CORNERS
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
-  stringTagMap:
-    RenderType: Fade
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ChannelMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailNormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _IridescentSpectrumMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _AlbedoAlphaMode: 0
-    - _AlbedoAssignedAtRuntime: 0
-    - _BlendOp: 0
-    - _BlendedClippingWidth: 0
-    - _BorderLight: 0
-    - _BorderLightOpaque: 0
-    - _BorderLightOpaqueAlpha: 1
-    - _BorderLightReplacesAlbedo: 0
-    - _BorderLightUsesHoverColor: 0
-    - _BorderMinValue: 0.1
-    - _BorderWidth: 0.1
-    - _BumpScale: 1
-    - _ClippingBorder: 0
-    - _ClippingBorderWidth: 0.025
-    - _ColorWriteMask: 15
-    - _CullMode: 2
-    - _CustomMode: 2
-    - _Cutoff: 0.5
-    - _DetailNormalMapScale: 1
-    - _DirectionalLight: 0
-    - _DstBlend: 10
-    - _EdgeSmoothingValue: 0.00008
-    - _EnableChannelMap: 0
-    - _EnableEmission: 0
-    - _EnableHoverColorOverride: 0
-    - _EnableLocalSpaceTriplanarMapping: 0
-    - _EnableNormalMap: 0
-    - _EnableProximityLightColorOverride: 0
-    - _EnableSSAA: 0
-    - _EnableTriplanarMapping: 0
-    - _EnvironmentColorIntensity: 0.5
-    - _EnvironmentColorThreshold: 1.5
-    - _EnvironmentColoring: 0
-    - _FadeBeginDistance: 0.85
-    - _FadeCompleteDistance: 0.5
-    - _FadeMinValue: 0
-    - _FluentLightIntensity: 1
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _HoverLight: 0
-    - _IgnoreZScale: 1
-    - _IndependentCorners: 0
-    - _InnerGlow: 0
-    - _InnerGlowPower: 4
-    - _InstancedColor: 0
-    - _Iridescence: 0
-    - _IridescenceAngle: -0.78
-    - _IridescenceIntensity: 0.5
-    - _IridescenceThreshold: 0.05
-    - _Metallic: 0
-    - _MipmapBias: -2
-    - _Mode: 3
-    - _NearLightFade: 0
-    - _NearPlaneFade: 0
-    - _NormalMapScale: 1
-    - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _ProximityLight: 0
-    - _ProximityLightSubtractive: 0
-    - _ProximityLightTwoSided: 0
-    - _Reflections: 0
-    - _Refraction: 0
-    - _RefractiveIndex: 0
-    - _RenderQueueOverride: -1
-    - _RimLight: 0
-    - _RimPower: 0.25
-    - _RoundCornerMargin: 0.123
-    - _RoundCornerRadius: 0.5
-    - _RoundCorners: 1
-    - _Smoothness: 0.5
-    - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 0
-    - _SphericalHarmonics: 0
-    - _SrcBlend: 1
-    - _Stencil: 0
-    - _StencilComparison: 0
-    - _StencilOperation: 0
-    - _StencilReference: 0
-    - _TriplanarMappingBlendSharpness: 4
-    - _UVSec: 0
-    - _VertexColors: 0
-    - _VertexExtrusion: 0
-    - _VertexExtrusionSmoothNormals: 0
-    - _VertexExtrusionValue: 0
-    - _ZOffsetFactor: 0
-    - _ZOffsetUnits: 0
-    - _ZTest: 4
-    - _ZWrite: 0
-    m_Colors:
-    - _ClippingBorderColor: {r: 1, g: 0.2, b: 0, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
-    - _EnvironmentColorX: {r: 1, g: 0, b: 0, a: 1}
-    - _EnvironmentColorY: {r: 0, g: 1, b: 0, a: 1}
-    - _EnvironmentColorZ: {r: 0, g: 0, b: 1, a: 1}
-    - _HoverColorOverride: {r: 1, g: 1, b: 1, a: 1}
-    - _InnerGlowColor: {r: 1, g: 1, b: 1, a: 0.75}
-    - _ProximityLightCenterColorOverride: {r: 1, g: 0, b: 0, a: 0}
-    - _ProximityLightMiddleColorOverride: {r: 0, g: 1, b: 0, a: 0.5}
-    - _ProximityLightOuterColorOverride: {r: 0, g: 0, b: 1, a: 1}
-    - _RimColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _RoundCornersRadius: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
-  m_BuildTextureStacks: []
 --- !u!1 &1480737542
 GameObject:
   m_ObjectHideFlags: 0
@@ -63044,6 +63083,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1072986204}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1654808745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1654808746}
+  m_Layer: 0
+  m_Name: TestPipelineParts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1654808746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654808745}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.9994, y: -0.4119, z: -0.5052}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 323915000}
+  - {fileID: 553107083}
+  m_Father: {fileID: 1331311254}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1656170118
 MonoBehaviour:
@@ -77809,7 +77880,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 143422375540732620}
+    m_TransformParent: {fileID: 1654808746}
     m_Modifications:
     - target: {fileID: 32763505386861920, guid: 796508613562d9844b1d3bfc8bd29670, type: 3}
       propertyPath: m_Name
@@ -77821,7 +77892,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 32763505386861921, guid: 796508613562d9844b1d3bfc8bd29670, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.2094
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 32763505386861921, guid: 796508613562d9844b1d3bfc8bd29670, type: 3}
       propertyPath: m_LocalPosition.y
@@ -77829,7 +77900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 32763505386861921, guid: 796508613562d9844b1d3bfc8bd29670, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.2357
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 32763505386861921, guid: 796508613562d9844b1d3bfc8bd29670, type: 3}
       propertyPath: m_LocalRotation.w
@@ -77857,6 +77928,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 32763505386861921, guid: 796508613562d9844b1d3bfc8bd29670, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 32763505386861947, guid: 796508613562d9844b1d3bfc8bd29670, type: 3}
+      propertyPath: releaseBehavior
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 32763505386861947, guid: 796508613562d9844b1d3bfc8bd29670, type: 3}
@@ -78173,8 +78248,6 @@ Transform:
   m_LocalPosition: {x: -0.119, y: -0.409, z: -0.329}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 323915000}
-  - {fileID: 553107083}
   - {fileID: 143422376329577631}
   - {fileID: 143422376070079514}
   - {fileID: 143422376470606982}
@@ -78536,7 +78609,7 @@ Transform:
   m_Children:
   - {fileID: 1313076445}
   m_Father: {fileID: 143422375540732620}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &143422376070079515
 BoxCollider:
@@ -78679,8 +78752,19 @@ Transform:
   m_Children:
   - {fileID: 143422375588927227}
   m_Father: {fileID: 143422375540732620}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &143422376470606978 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7037728118792653110, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
+  m_PrefabInstance: {fileID: 6941878313802890676}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a627d88e651336d4c861b0e776943c3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &143422376470606982 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7037728118792653106, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
@@ -78898,14 +78982,38 @@ MonoBehaviour:
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 270016229507173605}
+        m_TargetAssemblyTypeName: ManipulationEventListener, Assembly-CSharp
+        m_MethodName: CheckIfAlreadyInPipeline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onManipulationEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 143422376070079518}
-        m_TargetAssemblyTypeName: Dropzone, Assembly-CSharp
-        m_MethodName: DropInZone
-        m_Mode: 1
+      - m_Target: {fileID: 270016229507173605}
+        m_TargetAssemblyTypeName: ManipulationEventListener, Assembly-CSharp
+        m_MethodName: DropInitiatedPrefabBackInExitZone
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 270016229507173605}
+        m_TargetAssemblyTypeName: ManipulationEventListener, Assembly-CSharp
+        m_MethodName: DropInitiatedPrefabInZone
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -78974,7 +79082,7 @@ Transform:
   - {fileID: 1126054675535932032}
   - {fileID: 270016230357585858}
   m_Father: {fileID: 143422375540732620}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &270016229507173604
 GameObject:
@@ -78990,6 +79098,7 @@ GameObject:
   - component: {fileID: 270016229507173600}
   - component: {fileID: 270016229507173601}
   - component: {fileID: 270016229507173602}
+  - component: {fileID: 270016229507173605}
   m_Layer: 0
   m_Name: IntegerFilter
   m_TagString: FilterBox
@@ -78997,6 +79106,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &270016229507173605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270016229507173604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a627d88e651336d4c861b0e776943c3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exitZonePrefab: {fileID: 323914999}
 --- !u!23 &270016230007784149
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -82370,7 +82492,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 143422375540732620}
+    m_TransformParent: {fileID: 1654808746}
     m_Modifications:
     - target: {fileID: 1456601225219403670, guid: 3b335d8e6ce4133498003acb0a0c467d, type: 3}
       propertyPath: m_RootOrder
@@ -82378,7 +82500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1456601225219403670, guid: 3b335d8e6ce4133498003acb0a0c467d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1456601225219403670, guid: 3b335d8e6ce4133498003acb0a0c467d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -92870,7 +92992,7 @@ Transform:
   - {fileID: 2680836643490617787}
   - {fileID: 2966737662161632505}
   m_Father: {fileID: 143422375540732620}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2966737661839736793
 BoxCollider:
@@ -92925,6 +93047,7 @@ GameObject:
   - component: {fileID: 2966737661839736795}
   - component: {fileID: 2966737661839736794}
   - component: {fileID: 2966737661839736793}
+  - component: {fileID: 2966737661839736800}
   m_Layer: 0
   m_Name: BooleanFilter
   m_TagString: FilterBox
@@ -92932,6 +93055,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2966737661839736800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2966737661839736799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a627d88e651336d4c861b0e776943c3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exitZonePrefab: {fileID: 323914999}
 --- !u!114 &2966737661839736804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92966,10 +93102,10 @@ MonoBehaviour:
   onManipulationStarted:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7370035568086644210, guid: c458744bc6f9cfc4a8512398fa3bc989, type: 3}
-        m_TargetAssemblyTypeName: Dropzone, Assembly-CSharp
-        m_MethodName: OnManipulationStarted
-        m_Mode: 0
+      - m_Target: {fileID: 2966737661839736800}
+        m_TargetAssemblyTypeName: ManipulationEventListener, Assembly-CSharp
+        m_MethodName: CheckIfAlreadyInPipeline
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -92981,9 +93117,9 @@ MonoBehaviour:
   onManipulationEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 143422376070079518}
-        m_TargetAssemblyTypeName: Dropzone, Assembly-CSharp
-        m_MethodName: OnManipulationEnded
+      - m_Target: {fileID: 2966737661839736800}
+        m_TargetAssemblyTypeName: ManipulationEventListener, Assembly-CSharp
+        m_MethodName: DropInitiatedPrefabBackInExitZone
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -92993,10 +93129,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 143422376070079518}
-        m_TargetAssemblyTypeName: Dropzone, Assembly-CSharp
-        m_MethodName: DropInZone
-        m_Mode: 1
+      - m_Target: {fileID: 2966737661839736800}
+        m_TargetAssemblyTypeName: ManipulationEventListener, Assembly-CSharp
+        m_MethodName: DropInitiatedPrefabInZone
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -101758,7 +101894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4981930127747367624, guid: 2a6ee6bac3d2969449ea935625999b83, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.449
+      value: -0.856
       objectReference: {fileID: 0}
     - target: {fileID: 4981930127747367624, guid: 2a6ee6bac3d2969449ea935625999b83, type: 3}
       propertyPath: m_LocalPosition.y
@@ -101766,7 +101902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4981930127747367624, guid: 2a6ee6bac3d2969449ea935625999b83, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.348
+      value: 0.214
       objectReference: {fileID: 0}
     - target: {fileID: 4981930127747367624, guid: 2a6ee6bac3d2969449ea935625999b83, type: 3}
       propertyPath: m_LocalRotation.w
@@ -113039,32 +113175,72 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7037728118792653070, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
-      propertyPath: onManipulationEnded.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      propertyPath: onManipulationStarted.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7037728118792653070, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
+      propertyPath: onManipulationEnded.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037728118792653070, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
+      propertyPath: onManipulationEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 143422376470606978}
+    - target: {fileID: 7037728118792653070, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
       propertyPath: onManipulationEnded.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 143422376070079518}
+      objectReference: {fileID: 143422376470606978}
+    - target: {fileID: 7037728118792653070, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
+      propertyPath: onManipulationStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037728118792653070, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
+      propertyPath: onManipulationStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 143422376470606978}
     - target: {fileID: 7037728118792653070, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
       propertyPath: onManipulationEnded.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7037728118792653070, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
+      propertyPath: onManipulationEnded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DropInitiatedPrefabBackInExitZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037728118792653070, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
       propertyPath: onManipulationEnded.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: DropInZone
+      value: DropInitiatedPrefabInZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037728118792653070, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
+      propertyPath: onManipulationStarted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037728118792653070, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
+      propertyPath: onManipulationStarted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CheckIfAlreadyInPipeline
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037728118792653070, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
+      propertyPath: onManipulationEnded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ManipulationEventListener, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7037728118792653070, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
       propertyPath: onManipulationEnded.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Dropzone, Assembly-CSharp
+      value: ManipulationEventListener, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037728118792653070, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
+      propertyPath: onManipulationStarted.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ManipulationEventListener, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7037728118792653070, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
       propertyPath: onManipulationEnded.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7037728118792653070, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
+      propertyPath: onManipulationStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7037728118792653106, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7037728118792653106, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -113110,6 +113286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ContourFilter
       objectReference: {fileID: 0}
+    - target: {fileID: 7037728118792653110, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
+      propertyPath: exitZonePrefab
+      value: 
+      objectReference: {fileID: 323914999}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd14531e6dcf7f3439555df2469a21c1, type: 3}
 --- !u!4 &6995062285921803833
@@ -123031,14 +123211,38 @@ MonoBehaviour:
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8268777245518726064}
+        m_TargetAssemblyTypeName: ManipulationEventListener, Assembly-CSharp
+        m_MethodName: CheckIfAlreadyInPipeline
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onManipulationEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 143422376070079518}
-        m_TargetAssemblyTypeName: Dropzone, Assembly-CSharp
-        m_MethodName: DropInZone
-        m_Mode: 1
+      - m_Target: {fileID: 8268777245518726064}
+        m_TargetAssemblyTypeName: ManipulationEventListener, Assembly-CSharp
+        m_MethodName: DropInitiatedPrefabBackInExitZone
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8268777245518726064}
+        m_TargetAssemblyTypeName: ManipulationEventListener, Assembly-CSharp
+        m_MethodName: DropInitiatedPrefabInZone
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -123081,6 +123285,7 @@ GameObject:
   - component: {fileID: 8268777245518726063}
   - component: {fileID: 8268777245518726062}
   - component: {fileID: 8268777245518726061}
+  - component: {fileID: 8268777245518726064}
   m_Layer: 0
   m_Name: RGBAFilter
   m_TagString: FilterBox
@@ -123103,7 +123308,7 @@ Transform:
   - {fileID: 9142130832786007503}
   - {fileID: 8268777246234919053}
   m_Father: {fileID: 143422375540732620}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8268777245518726061
 BoxCollider:
@@ -123144,6 +123349,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91cf8ec3353d87d409bfce42a1bc6d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8268777245518726064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8268777245518726059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a627d88e651336d4c861b0e776943c3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exitZonePrefab: {fileID: 323914999}
 --- !u!1 &8268777246082452887
 GameObject:
   m_ObjectHideFlags: 0

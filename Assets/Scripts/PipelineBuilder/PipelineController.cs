@@ -6,12 +6,14 @@ using Microsoft.MixedReality.Toolkit.UI;
 /**
 Zwarte pC
 */
-public class Dropzone : MonoBehaviour
+public class PipelineController : MonoBehaviour
 {
     public Material m1;
     public Material m2;
 
     private Collider collidedWithDropzone;
+
+    public List<GameObject> GetPipeline() => pipeline;
 
     private List<GameObject> pipeline = new List<GameObject>();
 
@@ -32,9 +34,8 @@ public class Dropzone : MonoBehaviour
             GetComponent<Renderer>().material = m1;
             collidedWithDropzone = other;
             // Add dropinZone here.
+
         }
-
-
     }
 
     void OnTriggerExit(Collider other)
@@ -49,26 +50,40 @@ public class Dropzone : MonoBehaviour
 
     public void DropInZone()
     {
+        GameObject filter = collidedWithDropzone.transform.parent.gameObject;
+
         Debug.Log("Drop in zone called");
         if (collidedWithDropzone != null)
         {
-            AddToPipeline(collidedWithDropzone);
-            /*
-            TODO:
-                Create ExitZone
-                On Manipulation Ended Check ook voor ExitZone stuff.
-            */
-            // create exit zone
-            SnapObjectIntoPosition(collidedWithDropzone);
-            MoveDropZoneToRight(1);
+            // CHECK IF ALREADY IN PIPELINE
+            if (!pipeline.Contains(filter))
+            {
+                pipeline.Add(filter);
+                SnapObjectIntoPosition(collidedWithDropzone);
+                MoveDropZoneToRight(1);
+            }
+            else
+            {
+                // move filter to the end
+                pipeline.Remove(filter);
+                pipeline.Add(filter);
+                // FIXME: re arrange pipeline
+            }
+        }
+        else
+        {
+            // remove filter from dropzone
+            if (pipeline.Contains(filter))
+            {
+                pipeline.Remove(filter);
+                // FIXME: rearrange everything
+            }
         }
     }
 
-    public void AddToPipeline(Collider other)
+    void ShiftFiltersToLeft()
     {
-        // Collider == Cube
-        // other.transform.parent.name == ...Filter
-        pipeline.Add(other.gameObject);
+
     }
 
     void SnapObjectIntoPosition(Collider collider)
@@ -76,7 +91,8 @@ public class Dropzone : MonoBehaviour
         // Debug.Log(collider.name);
         collider.transform.parent.transform.position = transform.position;
         collider.transform.parent.transform.rotation = transform.rotation;
-        // collider.transform.parent.transform.localScale = transform.lossyScale; scale disabled on pipeline and filterblocks
+        // scale disabled on pipeline and filterblocks
+        // collider.transform.parent.transform.localScale 
     }
 
     public void MoveDropZoneToRight(int amount)
@@ -89,17 +105,4 @@ public class Dropzone : MonoBehaviour
         Vector3 originalPos = new Vector3(0.1f, 0, 0);
         transform.position = (index + 1) * originalPos;
     }
-
-    public void OnManipulationStarted(ManipulationEventData eventdata)
-    {
-        Debug.Log(" Manipulation started ");
-        // if already in pipeline get index
-
-    }
-
-    public void OnManipulationEnded(ManipulationEventData eventdata)
-    {
-        Debug.Log(" Manipulation ended ");
-    }
-    // als eentje word gemanipuleerd die al in de pipeline zit gebruik exitzone
 }

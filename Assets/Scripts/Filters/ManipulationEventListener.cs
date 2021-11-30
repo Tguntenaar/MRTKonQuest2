@@ -5,7 +5,6 @@ using Microsoft.MixedReality.Toolkit.UI;
 
 
 public class ManipulationEventListener : MonoBehaviour
-// Microsoft.MixedReality.Toolkit.UI.ObjectManipulator
 {
 
     public GameObject exitZonePrefab;
@@ -20,7 +19,7 @@ public class ManipulationEventListener : MonoBehaviour
     void HandleOnManipulationEnded(ManipulationEventData eventData)
     {
         // Search Dropzone
-        Dropzone dz = transform.parent.GetComponentInChildren<Dropzone>();
+        PipelineController dz = transform.parent.GetComponentInChildren<PipelineController>();
 
         dz.DropInZone();
     }
@@ -29,7 +28,7 @@ public class ManipulationEventListener : MonoBehaviour
     public void DropInitiatedPrefabInZone(ManipulationEventData eventData)
     {
         // Search Dropzone
-        Dropzone dz = transform.parent.GetComponentInChildren<Dropzone>();
+        PipelineController dz = transform.parent.GetComponentInChildren<PipelineController>();
         // Check for dropzone
         if (dz != null)
         {
@@ -39,31 +38,27 @@ public class ManipulationEventListener : MonoBehaviour
 
     public void DropInitiatedPrefabBackInExitZone(ManipulationEventData eventData)
     {
-        // TODO: get the right exit zone
-        // of spawn exit zone pas als je moved
-        ExitZone[] ez = transform.parent.GetComponentsInChildren<ExitZone>();
-        Debug.Log("ManipulationEventListener DropBackin Extit zone");
-
-        // ez[0].DropBackInZone(); not set
-        ez[1].DropBackInZone();
+        // There is always just one exitZone
+        ExitZone ez = transform.parent.GetComponentInChildren<ExitZone>();
+        // ez is null when not in the pipeline yet.
+        if (ez != null)
+        {
+            ez.DropBackInZone();
+        }
     }
 
     /* Function called on manipulation start. It checks wether the given filter is already in the pipeline. Than it Instantiates the exit zone on a specific position. It is Destroyed when dropped out of zone. */
     public void CheckIfAlreadyInPipeline()
     {
         // Get pipeline
-
+        PipelineController pc = transform.parent.GetComponentInChildren<PipelineController>();
+        List<GameObject> pipeline = pc.GetPipeline();
         // Check if in pipeline
-        // Instantiate exitzone on place
-
-        GameObject go = Instantiate(exitZonePrefab, transform.position, transform.rotation, transform.parent);
-        // make it interact with exitzone
-        Collider c = go.GetComponent<BoxCollider>();
-
-        // Debug.Log("Collider" + c.isTrigger);
-        //
-        // go.GetComponent<ExitZone>().SetCollidedWithExitZone(c);
-        // else
-        // nothing
+        if (pipeline.Contains(gameObject))
+        {
+            // Debug.Log("Already in pipe");
+            // Instantiate exitzone on place
+            GameObject go = Instantiate(exitZonePrefab, transform.position, transform.rotation, transform.parent);
+        }
     }
 }
