@@ -21,7 +21,7 @@ public class ManipulationEventListener : MonoBehaviour
         // Search Dropzone
         PipelineController dz = transform.parent.GetComponentInChildren<PipelineController>();
 
-        dz.DropInZone();
+        dz.DropInZone(eventData.ManipulationSource);
     }
 
     // This function is set on
@@ -32,7 +32,7 @@ public class ManipulationEventListener : MonoBehaviour
         // Check for dropzone
         if (dz != null)
         {
-            dz.DropInZone();
+            dz.DropInZone(eventData.ManipulationSource);
         }
     }
 

@@ -2900,8 +2900,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   min: {fileID: 6787341887154113078}
   max: {fileID: 6787341886281753467}
-  minValue: 10
-  maxValue: 30
+  minValue: -2147483648
+  maxValue: 2147483647
 --- !u!1 &6787341886822848049
 GameObject:
   m_ObjectHideFlags: 0

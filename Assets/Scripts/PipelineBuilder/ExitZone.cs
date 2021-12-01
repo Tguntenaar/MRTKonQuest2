@@ -9,7 +9,8 @@ There is only one exit zone at the time while dragging. On release it gets destr
 public class ExitZone : MonoBehaviour
 {
 
-    Collider collidedWithExitzone;
+    public Collider GetCollidedWithExitzone() => collidedWithExitzone;
+    private Collider collidedWithExitzone;
 
     void OnTriggerEnter(Collider other)
     {

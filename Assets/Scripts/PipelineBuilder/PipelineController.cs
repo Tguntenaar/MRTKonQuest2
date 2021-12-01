@@ -15,6 +15,7 @@ public class PipelineController : MonoBehaviour
 
     public List<GameObject> GetPipeline() => pipeline;
 
+    private float pipelineScale = 0.1f;
     private List<GameObject> pipeline = new List<GameObject>();
 
     // To keep track of dropzone
@@ -22,7 +23,7 @@ public class PipelineController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lastPositionDropZone = transform.position;
+        lastPositionDropZone = transform.localPosition;
     }
 
     void OnTriggerEnter(Collider other)
@@ -48,14 +49,14 @@ public class PipelineController : MonoBehaviour
         }
     }
 
-    public void DropInZone()
+    public void DropInZone(GameObject filter)
     {
-        GameObject filter = collidedWithDropzone.transform.parent.gameObject;
-
         Debug.Log("Drop in zone called");
+        Debug.Log(filter.name);
         if (collidedWithDropzone != null)
         {
-            // CHECK IF ALREADY IN PIPELINE
+            // TODO: 
+            // GameObject filter = collidedWithDropzone.transform.parent.gameObject;
             if (!pipeline.Contains(filter))
             {
                 pipeline.Add(filter);
@@ -67,42 +68,90 @@ public class PipelineController : MonoBehaviour
                 // move filter to the end
                 pipeline.Remove(filter);
                 pipeline.Add(filter);
-                // FIXME: re arrange pipeline
+                Debug.Log(" REMOVE AND ADD ");
+                Debug.Log(pipeline.Count);
+                // rearrange pipeline in UI
+                PipelineToUI();
             }
         }
         else
         {
+            // get exitzone
+            ExitZone ez = transform.parent.GetComponentInChildren<ExitZone>();
             // remove filter from dropzone
-            if (pipeline.Contains(filter))
+            if (pipeline.Contains(filter) && ez.GetCollidedWithExitzone() == null) // TODO: check if left exitzone
             {
                 pipeline.Remove(filter);
-                // FIXME: rearrange everything
+                // rearrange pipeline in UI
+                PipelineToUI();
             }
         }
+
+        /*
+            Else doe niks hier en doe het in exit zone waar je dit dropzone object zoekt
+            Of 
+            haal hier de exit zone op maar kan je er twee spawnen met twee handen?
+        */
     }
 
-    void ShiftFiltersToLeft()
+    // IEnumerator
+    void PipelineToUI()
     {
+        // Get location of Input
+        Transform inputposition = transform.parent.GetChild(0);
+        Transform dropZonePosition = transform.parent.GetChild(1);
 
+        for (int i = 0; i < pipeline.Count; i++)
+        {
+            Debug.Log(pipeline[i].name);
+            // yield return new WaitForSeconds(.5f);
+            MoveFilterToPosition(i, pipeline[i].transform);
+        }
+
+        // DropZone Position
+        MoveFilterToPosition(pipeline.Count, transform);
+    }
+
+    void ShiftFiltersToLeft(int amount, Transform t)
+    {
+        // TODO: translate / animate
+        t.localPosition = lastPositionDropZone;
+        t.Translate(lastPositionDropZone + t.right * pipelineScale * (amount - 1));
     }
 
     void SnapObjectIntoPosition(Collider collider)
     {
-        // Debug.Log(collider.name);
         collider.transform.parent.transform.position = transform.position;
         collider.transform.parent.transform.rotation = transform.rotation;
-        // scale disabled on pipeline and filterblocks
-        // collider.transform.parent.transform.localScale 
     }
 
     public void MoveDropZoneToRight(int amount)
     {
-        transform.position = transform.position + transform.right * 0.1f * amount;
+        // Dropzone                                     
+        transform.position = transform.position + transform.right * pipelineScale * amount;
     }
 
-    public void MoveDropZoneToIndex(int index)
+    public void MoveFilterToPosition(int amount, Transform t)
     {
-        Vector3 originalPos = new Vector3(0.1f, 0, 0);
-        transform.position = (index + 1) * originalPos;
+        // werkend wanneer de pipeline niet omdraait.
+        // t.localPosition = lastPositionDropZone + t.right * pipelineScale * amount;
+
+        t.localPosition = lastPositionDropZone + Vector3.right * pipelineScale * amount;
+        t.rotation = transform.rotation;
+    }
+
+    public void HideAllMenusInPipeline()
+    {
+        for (int i = 0; i < pipeline.Count; i++)
+        {
+            HideMenu(pipeline[i]);
+        }
+
+    }
+
+    void HideMenu(GameObject filter)
+    {
+        HideShowMenu menu = filter.GetComponentInChildren<HideShowMenu>();
+        menu.HideMenu();
     }
 }

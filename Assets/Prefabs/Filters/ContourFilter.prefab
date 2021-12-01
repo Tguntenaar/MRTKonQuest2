@@ -7712,6 +7712,7 @@ GameObject:
   - component: {fileID: 5886206321880762646}
   - component: {fileID: 3959519474744043444}
   - component: {fileID: 3084600175715827485}
+  - component: {fileID: 1452323429717779228}
   m_Layer: 0
   m_Name: PressableRoundButton
   m_TagString: Untagged
@@ -7911,7 +7912,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 7037728117936884532}
+      - m_Target: {fileID: 1452323429717779228}
         m_TargetAssemblyTypeName: HideShowMenu, Assembly-CSharp
         m_MethodName: ToggleHideShowMenu
         m_Mode: 1
@@ -8133,6 +8134,19 @@ MonoBehaviour:
   localCenter: {x: 0, y: 0, z: -0.0055}
   bounds: {x: 0.032, y: 0.032}
   touchableCollider: {fileID: 3959519474744043433}
+--- !u!114 &1452323429717779228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3959519474744043445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d084c2a5cad619d45a11501856093bfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menu: {fileID: 6858610618561014988}
 --- !u!1 &3959519475114740936
 GameObject:
   m_ObjectHideFlags: 0
@@ -11801,7 +11815,7 @@ GameObject:
   - component: {fileID: 5054686764331904259}
   - component: {fileID: 6492045151486424490}
   - component: {fileID: 3177129933897041723}
-  - component: {fileID: 6941878313740940372}
+  - component: {fileID: 1534415644656667041}
   m_Layer: 0
   m_Name: ButtonPin
   m_TagString: Untagged
@@ -12016,9 +12030,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6941878313740940372}
-        m_TargetAssemblyTypeName: ButtonPinTogglePosition, Assembly-CSharp
-        m_MethodName: PlaceAboveFilterBox
+      - m_Target: {fileID: 1534415644656667041}
+        m_TargetAssemblyTypeName: HideShowMenu, Assembly-CSharp
+        m_MethodName: ToggleHideShowMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12270,7 +12284,7 @@ MonoBehaviour:
   defaultButtonQuadMaterial: {fileID: 2100000, guid: fa419ab56051229449e3b813df8f295f, type: 2}
   iconSet: {fileID: 11400000, guid: 8b386ef895f7c924f8c4b03d1d3ed683, type: 2}
   defaultIconSet: {fileID: 11400000, guid: 8b386ef895f7c924f8c4b03d1d3ed683, type: 2}
---- !u!114 &6941878313740940372
+--- !u!114 &1534415644656667041
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12279,11 +12293,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5054686764331904258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6dbebe433e2a244ca44e5badd896e2c, type: 3}
+  m_Script: {fileID: 11500000, guid: d084c2a5cad619d45a11501856093bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orignalposition: {x: -0.010100007, y: 0.15710002, z: -0.0001052022}
-  orignalrotation: {x: 0, y: 0, z: 0, w: 1}
+  menu: {fileID: 6858610618561014988}
 --- !u!1 &5054686764635489919
 GameObject:
   m_ObjectHideFlags: 0
@@ -16348,50 +16361,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &7037728117936884534
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7037728117936884535}
-  - component: {fileID: 7037728117936884532}
-  m_Layer: 0
-  m_Name: hideshow
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7037728117936884535
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7037728117936884534}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7037728119678716435}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7037728117936884532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7037728117936884534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d084c2a5cad619d45a11501856093bfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menu: {fileID: 6858610618561014988}
 --- !u!1 &7037728118792653109
 GameObject:
   m_ObjectHideFlags: 0
@@ -16551,37 +16520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a627d88e651336d4c861b0e776943c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostTransform: {fileID: 0}
-  manipulationType: 3
-  twoHandedManipulationType: 7
-  allowFarManipulation: 1
-  useForcesForNearManipulation: 0
-  oneHandRotationModeNear: 1
-  oneHandRotationModeFar: 1
-  releaseBehavior: 3
-  transformSmoothingLogicType:
-    reference: Microsoft.MixedReality.Toolkit.Utilities.DefaultTransformSmoothingLogic,
-      Microsoft.MixedReality.Toolkit.SDK
-  smoothingFar: 1
-  smoothingNear: 1
-  moveLerpTime: 0.001
-  rotateLerpTime: 0.001
-  scaleLerpTime: 0.001
-  enableConstraints: 1
-  constraintsManager: {fileID: 0}
-  elasticsManager: {fileID: 0}
-  onManipulationStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  onManipulationEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  onHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  onHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
+  exitZonePrefab: {fileID: 0}
 --- !u!1 &7037728119289267977
 GameObject:
   m_ObjectHideFlags: 0
@@ -16612,7 +16551,7 @@ RectTransform:
   m_LocalScale: {x: 0.033500753, y: 0.033500753, z: 0.033500753}
   m_Children: []
   m_Father: {fileID: 7037728119678716435}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16785,7 +16724,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
-  - {fileID: 7037728117936884535}
   - {fileID: 7037728119289267974}
   m_Father: {fileID: 7037728118792653106}
   m_RootOrder: 2

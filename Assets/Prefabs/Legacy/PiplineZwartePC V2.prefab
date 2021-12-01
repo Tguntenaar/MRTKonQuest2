@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &8316024020764926902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6132539943900429024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dbebe433e2a244ca44e5badd896e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orignalposition: {x: -0.010100007, y: 0.15710002, z: -0.0001052022}
+  orignalrotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &8256780563548150996
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,7 +633,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 8256780564830148741}
+  constraintsManager: {fileID: 8707094125817460108, guid: 7a389c09ea5648d4199c81133eb0cedc, type: 3}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -1161,20 +1175,6 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
---- !u!114 &8316024020764926902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6132539943900429024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6dbebe433e2a244ca44e5badd896e2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orignalposition: {x: -0.010100007, y: 0.15710002, z: -0.0001052022}
-  orignalrotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1001 &8256780563037436808
 PrefabInstance:
   m_ObjectHideFlags: 0

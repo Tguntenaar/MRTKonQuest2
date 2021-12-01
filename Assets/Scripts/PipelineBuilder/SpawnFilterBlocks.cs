@@ -22,11 +22,17 @@ public class SpawnFilterBlocks : MonoBehaviour
 
     public void SpawnObject()
     {
+        // public static Object Instantiate(Object original, Vector3 position, Quaternion rotation, Transform parent);
         GameObject spawned = Instantiate(filterPrefab, pipeline.transform, instantiateInWorldSpace);
+        Debug.Log(transform.parent.transform.parent.name);
+        // GameObject spawned = Instantiate(filterPrefab, Vector3 position, Quaternion rotation, Transform parent);
         ObjectManipulator om = spawned.GetComponent<ObjectManipulator>();
 
         Debug.Log("Spawned");
     }
+
+    // TODO: IntegerManipulator Script
+    // Fix hier dat ie spawned naast het het handje
 
     private void HandleOnManipulationEnded(ManipulationEventData eventdata)
     {

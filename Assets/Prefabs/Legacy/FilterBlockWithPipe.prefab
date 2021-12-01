@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 4661788128690476184}
   - component: {fileID: 4661788128690476181}
   m_Layer: 0
-  m_Name: FilterBlock
+  m_Name: FilterBlockWithPipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

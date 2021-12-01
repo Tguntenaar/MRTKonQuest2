@@ -12,8 +12,10 @@ public class IntegerManipulator : MonoBehaviour
 
     public TextMeshPro min;
     public TextMeshPro max;
-    public int minValue;
-    public int maxValue;
+
+    public int minValue = 0;
+    public int maxValue = 10000;
+    // TODO: default values or get setter en set on initiate.
 
     TextMeshPro[] texts;
 
@@ -34,6 +36,7 @@ public class IntegerManipulator : MonoBehaviour
 
     }
 
+    /* This gets called on slider change. */
     public void UpdateUI()
     {
         int baseValue = minValue;

@@ -17,11 +17,6 @@ public class ButtonPinTogglePosition : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void PlaceAboveFilterBox()
     {
