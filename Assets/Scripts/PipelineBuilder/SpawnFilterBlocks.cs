@@ -23,47 +23,23 @@ public class SpawnFilterBlocks : MonoBehaviour
     public void SpawnObject()
     {
         // public static Object Instantiate(Object original, Vector3 position, Quaternion rotation, Transform parent);
-        GameObject spawned = Instantiate(filterPrefab, pipeline.transform, instantiateInWorldSpace);
-        Debug.Log(transform.parent.transform.parent.name);
-        // GameObject spawned = Instantiate(filterPrefab, Vector3 position, Quaternion rotation, Transform parent);
-        ObjectManipulator om = spawned.GetComponent<ObjectManipulator>();
+        // GameObject spawned = Instantiate(filterPrefab, pipeline.transform, instantiateInWorldSpace);
+        // position is to 10cm to the right of the handmenu / rotation is the same
+        Transform parentTransform = transform.parent.transform.parent.transform.parent.transform;
+        Debug.Log(parentTransform.name);
+        Vector3 position = parentTransform.position + new Vector3(0.1f, 0, 0);
+        Quaternion rotation = parentTransform.rotation;
+
+        GameObject spawned = Instantiate(filterPrefab, position, rotation, parentTransform);
+        spawned.transform.parent = parentTransform.parent;
+
+        // ObjectManipulator om = spawned.GetComponent<ObjectManipulator>();
 
         Debug.Log("Spawned");
     }
-
-    // TODO: IntegerManipulator Script
-    // Fix hier dat ie spawned naast het het handje
 
     private void HandleOnManipulationEnded(ManipulationEventData eventdata)
     {
         Debug.Log("This works");
     }
-
-
-
-
-    // private enum Filter
-    // {
-    //     ContourFilter,
-    //     RangeFilter,
-    //     Integer
-    // }
-    // [SerializeReference] private Filter state;
-    // public void SpawnObjectEnum(SpawnFilterBlocks currState)
-    // {
-
-    //     switch (currState.state)
-    //     {
-    //         case Filter.ContourFilter:
-    //             Instantiate(contourfilterPrefab); // TODO: next to the hand menu
-    //             break;
-    //         case Filter.RangeFilter:
-    //             break;
-    //         case Filter.Integer:
-    //             break;
-    //         default:
-    //             Debug.Log("Add Filter to Spawn FilterBlock Script");
-    //             break;
-    //     }
-    // }
 }

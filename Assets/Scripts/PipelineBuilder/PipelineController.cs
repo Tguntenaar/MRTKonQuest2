@@ -4,7 +4,7 @@ using UnityEngine;
 using Microsoft.MixedReality.Toolkit.UI;
 
 /**
-Zwarte pC
+TODO: Add VTKWorkbench files from project OriginalCode to VTKWORKBench Folder in this project
 */
 public class PipelineController : MonoBehaviour
 {
@@ -17,6 +17,9 @@ public class PipelineController : MonoBehaviour
 
     private float pipelineScale = 0.1f;
     private List<GameObject> pipeline = new List<GameObject>();
+
+    [HideInInspector]
+    public GameObject targetData;
 
     // To keep track of dropzone
     Vector3 lastPositionDropZone;
@@ -60,6 +63,12 @@ public class PipelineController : MonoBehaviour
             if (!pipeline.Contains(filter))
             {
                 pipeline.Add(filter);
+                ManipulationEventListener mel = filter.GetComponent<ManipulationEventListener>();
+                if (mel != null)
+                {
+                    mel.RegisterTargetData(targetData);
+
+                }
                 SnapObjectIntoPosition(collidedWithDropzone);
                 MoveDropZoneToRight(1);
             }
@@ -153,5 +162,14 @@ public class PipelineController : MonoBehaviour
     {
         HideShowMenu menu = filter.GetComponentInChildren<HideShowMenu>();
         menu.HideMenu();
+    }
+
+    public void RegisterObject(GameObject g)
+    {
+        targetData = g;
+        // Of
+        // Dictionary<GameObject> voeg hierin toe
+        // Of
+        // List<GameObject> Pipeline
     }
 }

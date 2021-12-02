@@ -30,20 +30,16 @@ public class RGBAScript : MonoBehaviour
     // Update is called once per frame
     public void OnEdit()
     {
-        //Color color = example.material.color;
-        //color.r = Red.SliderValue;
-        //color.g = Green.SliderValue;
-        //color.b = Blue.SliderValue;
-        //color.a = Alpha.SliderValue;
-        //Debug.Log(Alpha.SliderValue);
-        //example.material.color = color;
         TargetRenderer.material.color = new Color(Red.SliderValue, Green.SliderValue, Blue.SliderValue, Alpha.SliderValue);
     }
 
 
     public void OnSliderUpdatedRed(SliderEventData eventData)
     {
-        TargetRenderer = GetComponentInChildren<Renderer>();
+        Debug.Log("OnSliderUpdatedRed");\
+        // FIXME:
+        // TargetRenderer = GetComponentInChildren<Renderer>();
+        // TargetRenderer = GameObject.Find("TargetRenderCube").GetComponent<Renderer>();
         if ((TargetRenderer != null) && (TargetRenderer.material != null))
         {
             TargetRenderer.material.color = new Color(eventData.NewValue, TargetRenderer.sharedMaterial.color.g, TargetRenderer.sharedMaterial.color.b, TargetRenderer.sharedMaterial.color.a);
@@ -52,7 +48,7 @@ public class RGBAScript : MonoBehaviour
 
     public void OnSliderUpdatedGreen(SliderEventData eventData)
     {
-        TargetRenderer = GetComponentInChildren<Renderer>();
+        // TargetRenderer = GetComponentInChildren<Renderer>();
         if ((TargetRenderer != null) && (TargetRenderer.material != null))
         {
             TargetRenderer.material.color = new Color(TargetRenderer.sharedMaterial.color.r, eventData.NewValue, TargetRenderer.sharedMaterial.color.b, TargetRenderer.sharedMaterial.color.a);
@@ -61,7 +57,7 @@ public class RGBAScript : MonoBehaviour
 
     public void OnSliderUpdateBlue(SliderEventData eventData)
     {
-        TargetRenderer = GetComponentInChildren<Renderer>();
+        // TargetRenderer = GetComponentInChildren<Renderer>();
         if ((TargetRenderer != null) && (TargetRenderer.material != null))
         {
             TargetRenderer.material.color = new Color(TargetRenderer.sharedMaterial.color.r, TargetRenderer.sharedMaterial.color.g, eventData.NewValue, TargetRenderer.sharedMaterial.color.a);
@@ -70,7 +66,7 @@ public class RGBAScript : MonoBehaviour
 
     public void OnSliderUpdateAlpha(SliderEventData eventData)
     {
-        TargetRenderer = GetComponentInChildren<Renderer>();
+        // TargetRenderer = GetComponentInChildren<Renderer>();
         if ((TargetRenderer != null) && (TargetRenderer.material != null))
         {
             TargetRenderer.material.color = new Color(TargetRenderer.sharedMaterial.color.r, TargetRenderer.sharedMaterial.color.g, TargetRenderer.sharedMaterial.color.b, eventData.NewValue);

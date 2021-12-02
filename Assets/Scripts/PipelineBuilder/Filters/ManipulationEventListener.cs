@@ -19,9 +19,34 @@ public class ManipulationEventListener : MonoBehaviour
     void HandleOnManipulationEnded(ManipulationEventData eventData)
     {
         // Search Dropzone
-        PipelineController dz = transform.parent.GetComponentInChildren<PipelineController>();
+        PipelineController pc = transform.parent.GetComponentInChildren<PipelineController>();
 
-        dz.DropInZone(eventData.ManipulationSource);
+        pc.DropInZone(eventData.ManipulationSource);
+    }
+
+    public void RegisterTargetData(GameObject targetData)
+    {
+        Debug.Log("RegisterTargetData");
+        switch (transform.name)
+        {
+            case "RGBAFilter":
+                // TODO: TODO: TODO:
+                // In plaats van RGBAScript + switch case wil
+                // je alleen een GetComponent<FilterScript>
+                // Dit filter script heeft elk filter (ManipulationEvent? -> FilterScript)
+                // Dit filter script bevat variable TargetData object voor elk Filter
+                // Andere Specifieke Filters Script kunne dit script Extenden
+
+                RGBAScript rgba = transform.GetComponentInChildren<RGBAScript>();
+                // find TargetRenderCube disable SetActive(false)
+                // TODO: null exception
+                // transform.Find("TargetRenderCube").gameObject.SetActive(false);
+                Debug.Log("targetData = " + targetData.name);
+                rgba.TargetRenderer = targetData.GetComponent<Renderer>();
+                break;
+            default:
+                break;
+        }
     }
 
     // This function is set on

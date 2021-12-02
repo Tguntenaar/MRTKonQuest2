@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Samples/Mixed Reality Toolkit Examples/2.7.2/Demos - HandTracking/Scenes/HandInteractionExamples.unity
     guid: 3dd4a396b5225f8469b9a1eb608bfa57
+  - enabled: 0
+    path: Assets/Samples/Mixed Reality Toolkit Examples/2.7.2/Experimental - Elastic/Scenes/ElasticSystemExamples.unity
+    guid: 0e0d9dfd8a0eb2d4f9805d0352426a4f
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: ba1f321614e928148835c679f7825762, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: cce9bd5e5f141324899a0a453f1b5dd4, type: 2}

@@ -39,9 +39,12 @@ public class IntegerManipulator : MonoBehaviour
     /* This gets called on slider change. */
     public void UpdateUI()
     {
-        int baseValue = minValue;
-        int delta = maxValue - minValue;
-        int total = baseValue + (int)Math.Round(delta * pinchSlider.SliderValue);
-        t.text = $"Value: {total}";
+        if (pinchSlider != null) // gets called once at wake probably because give a null ref exception only 1 time
+        {
+            int baseValue = minValue;
+            int delta = maxValue - minValue;
+            int total = baseValue + (int)Math.Round(delta * pinchSlider.SliderValue);
+            t.text = $"Value: {total}";
+        }
     }
 }
