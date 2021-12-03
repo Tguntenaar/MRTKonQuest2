@@ -19,13 +19,13 @@ public class ContourFilterButtonEvents : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("started");
-        Debug.Log(controls.Length);
-        for(int i = 0; i < controls.Length; i++)
+        Debug.Log("started contour filterbutton events");
+        // Debug.Log(controls.Length);
+        for (int i = 0; i < controls.Length; i++)
         {
             //controls[i].SetActive(false);
         }
-       // array.onClick.AddListener(delegate { SwitchButtonHandler(0)});
+        // array.onClick.AddListener(delegate { SwitchButtonHandler(0)});
     }
 
     void SwitchButtonHandler(int idx_)
@@ -36,7 +36,7 @@ public class ContourFilterButtonEvents : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void ButtonOne()

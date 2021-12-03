@@ -86,7 +86,7 @@ namespace Microsoft.MixedReality.Toolkit.UI
                 var oldSliderValue = sliderValueMax;
                 sliderValueMax = value;
                 UpdateUI();
-                // invoke(blabla , 2 seconds)  in case of 0 seconds invoked on next update cycle TODO:
+                // invoke(blabla , 2 seconds)  in case of 0 seconds invoked on next update cycle
 
                 //OnValueUpdated.Invoke(new SliderEventData(oldSliderValue, value, ActivePointer, pin)); 
             }
@@ -603,7 +603,7 @@ namespace Microsoft.MixedReality.Toolkit.UI
         {
             var newSliderPos = SliderStartPositionMax + sliderThumbOffset + SliderTrackDirection * sliderValueMax;
             thumbRootMax.transform.position = newSliderPos;
-            // TODO: or niet allebei aanpassen
+            //  or niet allebei aanpassen
             var newSliderPosMin = SliderStartPositionMin + sliderThumbOffset + SliderTrackDirection * sliderValueMin;
             thumbRootMin.transform.position = newSliderPosMin;
         }
@@ -612,7 +612,7 @@ namespace Microsoft.MixedReality.Toolkit.UI
         {
             if (OnInteractionEnded != null)
             {
-                //OnInteractionEnded.Invoke(new SliderEventData(sliderValueMax, sliderValueMax, ActivePointer, pin)); //TODO
+                //OnInteractionEnded.Invoke(new SliderEventData(sliderValueMax, sliderValueMax, ActivePointer, pin));
             }
             ActivePointer = null;
         }
@@ -622,12 +622,12 @@ namespace Microsoft.MixedReality.Toolkit.UI
         #region IMixedRealityFocusHandler
         public void OnFocusEnter(FocusEventData eventData)
         {
-            //OnHoverEntered.Invoke(new SliderEventData(sliderValueMax, sliderValueMax, eventData.Pointer, pin));  //TODO:
+            //OnHoverEntered.Invoke(new SliderEventData(sliderValueMax, sliderValueMax, eventData.Pointer, pin));  
         }
 
         public void OnFocusExit(FocusEventData eventData)
         {
-            //OnHoverExited.Invoke(new SliderEventData(sliderValueMax, sliderValueMax, eventData.Pointer, pin)); //TODO
+            //OnHoverExited.Invoke(new SliderEventData(sliderValueMax, sliderValueMax, eventData.Pointer, pin)); 
         }
         #endregion
 

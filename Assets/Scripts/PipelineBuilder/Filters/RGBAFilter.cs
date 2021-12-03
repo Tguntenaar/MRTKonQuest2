@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Microsoft.MixedReality.Toolkit.UI;
 
-public class RGBAScript : MonoBehaviour
+public class RGBAFilter : MonoBehaviour
 {
     public PinchSlider Red;
     public PinchSlider Green;
@@ -36,10 +36,8 @@ public class RGBAScript : MonoBehaviour
 
     public void OnSliderUpdatedRed(SliderEventData eventData)
     {
-        Debug.Log("OnSliderUpdatedRed");\
-        // FIXME:
+        // This overrides the target renderer every time its updated unwanted behaviour
         // TargetRenderer = GetComponentInChildren<Renderer>();
-        // TargetRenderer = GameObject.Find("TargetRenderCube").GetComponent<Renderer>();
         if ((TargetRenderer != null) && (TargetRenderer.material != null))
         {
             TargetRenderer.material.color = new Color(eventData.NewValue, TargetRenderer.sharedMaterial.color.g, TargetRenderer.sharedMaterial.color.b, TargetRenderer.sharedMaterial.color.a);
@@ -48,7 +46,6 @@ public class RGBAScript : MonoBehaviour
 
     public void OnSliderUpdatedGreen(SliderEventData eventData)
     {
-        // TargetRenderer = GetComponentInChildren<Renderer>();
         if ((TargetRenderer != null) && (TargetRenderer.material != null))
         {
             TargetRenderer.material.color = new Color(TargetRenderer.sharedMaterial.color.r, eventData.NewValue, TargetRenderer.sharedMaterial.color.b, TargetRenderer.sharedMaterial.color.a);
@@ -57,7 +54,6 @@ public class RGBAScript : MonoBehaviour
 
     public void OnSliderUpdateBlue(SliderEventData eventData)
     {
-        // TargetRenderer = GetComponentInChildren<Renderer>();
         if ((TargetRenderer != null) && (TargetRenderer.material != null))
         {
             TargetRenderer.material.color = new Color(TargetRenderer.sharedMaterial.color.r, TargetRenderer.sharedMaterial.color.g, eventData.NewValue, TargetRenderer.sharedMaterial.color.a);
@@ -66,7 +62,6 @@ public class RGBAScript : MonoBehaviour
 
     public void OnSliderUpdateAlpha(SliderEventData eventData)
     {
-        // TargetRenderer = GetComponentInChildren<Renderer>();
         if ((TargetRenderer != null) && (TargetRenderer.material != null))
         {
             TargetRenderer.material.color = new Color(TargetRenderer.sharedMaterial.color.r, TargetRenderer.sharedMaterial.color.g, TargetRenderer.sharedMaterial.color.b, eventData.NewValue);

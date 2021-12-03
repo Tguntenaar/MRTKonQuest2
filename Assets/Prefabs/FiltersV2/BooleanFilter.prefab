@@ -2985,7 +2985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a627d88e651336d4c861b0e776943c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exitZonePrefab: {fileID: 0}
+  exitZonePrefab: {fileID: 1456601225219403673, guid: 3b335d8e6ce4133498003acb0a0c467d, type: 3}
 --- !u!1 &6132012421245478369
 GameObject:
   m_ObjectHideFlags: 0
@@ -3433,7 +3433,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6414971231005556898
 Transform:
   m_ObjectHideFlags: 0

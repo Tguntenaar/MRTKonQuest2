@@ -78,7 +78,7 @@ public class PipelineBlockCollision : MonoBehaviour
     Vector3 FindPosition()
     {
         Vector3 increment = startPosition - firstFilterPosition;
-        // TODO: fix direction Vector3.back equals Vector3(0,0,-1)
+        // fix direction Vector3.back equals Vector3(0,0,-1)
         Vector3 thePosition = transform.TransformPoint(Vector3.back * pipelineLength * 2);
         return thePosition;
     }

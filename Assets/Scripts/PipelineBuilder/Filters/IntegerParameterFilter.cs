@@ -5,7 +5,7 @@ using Microsoft.MixedReality.Toolkit.UI;
 using TMPro;
 using System;
 
-public class IntegerManipulator : MonoBehaviour
+public class IntegerParameterFilter : MonoBehaviour
 {
     PinchSlider pinchSlider;
     TextMeshPro t;
@@ -15,7 +15,7 @@ public class IntegerManipulator : MonoBehaviour
 
     public int minValue = 0;
     public int maxValue = 10000;
-    // TODO: default values or get setter en set on initiate.
+    // default values or get setter en set on initiate.
 
     TextMeshPro[] texts;
 

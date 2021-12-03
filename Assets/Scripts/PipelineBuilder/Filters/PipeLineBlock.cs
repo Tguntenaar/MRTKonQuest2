@@ -4,16 +4,10 @@ using UnityEngine;
 using Microsoft.MixedReality.Toolkit.UI;
 
 
-public class ManipulationEventListener : MonoBehaviour
+public class PipeLineBlock : MonoBehaviour
 {
 
     public GameObject exitZonePrefab;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // OnManipulationEnded.AddListener(HandleOnManipulationEnded); Listener doesnt always work
-    }
 
     /* This function is not used anymore */
     void HandleOnManipulationEnded(ManipulationEventData eventData)
@@ -24,28 +18,60 @@ public class ManipulationEventListener : MonoBehaviour
         pc.DropInZone(eventData.ManipulationSource);
     }
 
+    /*
+
+    // TODO:
+    // In plaats van RGBAScript + switch case wil
+    // je alleen een GetComponent<FilterScript>
+    // Dit filter script heeft elk filter (ManipulationEvent? -> FilterScript)
+    // Dit filter script bevat variable TargetData object voor elk Filter
+    // Andere Specifieke Filters Script kunne dit script Extenden
+
+    // Als je meer dan een filter werkend wilt hebben moet je die aanpassen.
+
+    */
     public void RegisterTargetData(GameObject targetData)
     {
         Debug.Log("RegisterTargetData");
         switch (transform.name)
         {
             case "RGBAFilter":
-                // TODO: TODO: TODO:
-                // In plaats van RGBAScript + switch case wil
-                // je alleen een GetComponent<FilterScript>
-                // Dit filter script heeft elk filter (ManipulationEvent? -> FilterScript)
-                // Dit filter script bevat variable TargetData object voor elk Filter
-                // Andere Specifieke Filters Script kunne dit script Extenden
 
-                RGBAScript rgba = transform.GetComponentInChildren<RGBAScript>();
-                // find TargetRenderCube disable SetActive(false)
-                // TODO: null exception
-                // transform.Find("TargetRenderCube").gameObject.SetActive(false);
-                Debug.Log("targetData = " + targetData.name);
+
+                RGBAFilter rgba = transform.GetComponentInChildren<RGBAFilter>();
+                rgba.TargetRenderer.transform.gameObject.SetActive(false);
                 rgba.TargetRenderer = targetData.GetComponent<Renderer>();
                 break;
+            // case "":
+            // break;
             default:
+                // FIXME:
+                // BaseFilter filter = transform.GetComponentInChildren<BaseFilter>();
+                // filter.TargetObject = targetData;
                 break;
+        }
+    }
+
+    public void SnapIntoPosition(Vector3 position, Quaternion rotation)
+    {
+        transform.position = position;
+        transform.rotation = rotation;
+    }
+
+    public void HideMenu()
+    {
+        Debug.Log("HideMenu " + transform.name);
+        HideShowMenu hsm = transform.GetComponentInChildren<HideShowMenu>();
+        hsm.HideMenu();
+    }
+
+    // Gets called when data object is placed in Filterbox;
+    public void GenerateMenu()
+    {
+        ExtendedProperties ep = transform.GetComponent<ExtendedProperties>();
+        for (int i = 0; i < ep.properties.Length; i++)
+        {
+            // Instantiate(PinchSliderPrefab); op de juiste positie etc
         }
     }
 

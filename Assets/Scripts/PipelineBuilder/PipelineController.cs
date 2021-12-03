@@ -21,6 +21,9 @@ public class PipelineController : MonoBehaviour
     [HideInInspector]
     public GameObject targetData;
 
+    [HideInInspector]
+    public List<GameObject> targetObjects = new List<GameObject>();
+
     // To keep track of dropzone
     Vector3 lastPositionDropZone;
     // Start is called before the first frame update
@@ -31,14 +34,11 @@ public class PipelineController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("TriggerEnter");
         if (other.CompareTag("SnapObject"))
         {
-            Debug.Log("Triggered");
-
             GetComponent<Renderer>().material = m1;
             collidedWithDropzone = other;
-            // Add dropinZone here.
-
         }
     }
 
@@ -46,7 +46,6 @@ public class PipelineController : MonoBehaviour
     {
         if (other.CompareTag("SnapObject"))
         {
-            Debug.Log("Exit");
             GetComponent<Renderer>().material = m2;
             collidedWithDropzone = null;
         }
@@ -58,27 +57,31 @@ public class PipelineController : MonoBehaviour
         Debug.Log(filter.name);
         if (collidedWithDropzone != null)
         {
-            // TODO: 
-            // GameObject filter = collidedWithDropzone.transform.parent.gameObject;
             if (!pipeline.Contains(filter))
             {
                 pipeline.Add(filter);
-                ManipulationEventListener mel = filter.GetComponent<ManipulationEventListener>();
-                if (mel != null)
-                {
-                    mel.RegisterTargetData(targetData);
-
-                }
                 SnapObjectIntoPosition(collidedWithDropzone);
                 MoveDropZoneToRight(1);
+
+                if (filter.GetComponent<ExtendedProperties>() != null)
+                {
+                    // Dataobject block put into pipeline
+                    filter.GetComponent<PipelineController>().AddObjectToRegistry(filter);
+                }
+                else
+                {
+                    // Single Object in input
+                    filter.GetComponent<PipeLineBlock>().RegisterTargetData(targetData);
+                }
+
+                // DropZone Position After Adding to Dropzone
+                MoveFilterToPosition(pipeline.Count, transform);
             }
             else
             {
                 // move filter to the end
                 pipeline.Remove(filter);
                 pipeline.Add(filter);
-                Debug.Log(" REMOVE AND ADD ");
-                Debug.Log(pipeline.Count);
                 // rearrange pipeline in UI
                 PipelineToUI();
             }
@@ -87,15 +90,17 @@ public class PipelineController : MonoBehaviour
         {
             // get exitzone
             ExitZone ez = transform.parent.GetComponentInChildren<ExitZone>();
-            // remove filter from dropzone
-            if (pipeline.Contains(filter) && ez.GetCollidedWithExitzone() == null) // TODO: check if left exitzone
+            // check if left exitzone
+            if (pipeline.Contains(filter) && ez.GetCollidedWithExitzone() == null)
             {
+                // remove filter from pipeline
                 pipeline.Remove(filter);
                 // rearrange pipeline in UI
                 PipelineToUI();
             }
         }
-
+        HideAllMenusInPipeline();
+        // HideAllMenusInPipeline();
         /*
             Else doe niks hier en doe het in exit zone waar je dit dropzone object zoekt
             Of 
@@ -112,8 +117,6 @@ public class PipelineController : MonoBehaviour
 
         for (int i = 0; i < pipeline.Count; i++)
         {
-            Debug.Log(pipeline[i].name);
-            // yield return new WaitForSeconds(.5f);
             MoveFilterToPosition(i, pipeline[i].transform);
         }
 
@@ -121,15 +124,12 @@ public class PipelineController : MonoBehaviour
         MoveFilterToPosition(pipeline.Count, transform);
     }
 
-    void ShiftFiltersToLeft(int amount, Transform t)
-    {
-        // TODO: translate / animate
-        t.localPosition = lastPositionDropZone;
-        t.Translate(lastPositionDropZone + t.right * pipelineScale * (amount - 1));
-    }
-
     void SnapObjectIntoPosition(Collider collider)
     {
+        // PipeLineBlock pb = collider.transform.parent.GetComponentInChildren<PipeLineBlock>();
+        // pb.SnapIntoPosition(transform.position, transform.rotation);
+
+        // From Cube To FilterBlock Note: Every Filter / Object Block needs a child with boxcollider with Tag SnapObject
         collider.transform.parent.transform.position = transform.position;
         collider.transform.parent.transform.rotation = transform.rotation;
     }
@@ -142,26 +142,28 @@ public class PipelineController : MonoBehaviour
 
     public void MoveFilterToPosition(int amount, Transform t)
     {
-        // werkend wanneer de pipeline niet omdraait.
-        // t.localPosition = lastPositionDropZone + t.right * pipelineScale * amount;
-
         t.localPosition = lastPositionDropZone + Vector3.right * pipelineScale * amount;
         t.rotation = transform.rotation;
     }
+
+    // translate / animate
+    void ShiftFiltersToLeft(int amount, Transform t)
+    {
+        t.localPosition = lastPositionDropZone;
+        t.Translate(lastPositionDropZone + t.right * pipelineScale * (amount - 1));
+    }
+
 
     public void HideAllMenusInPipeline()
     {
         for (int i = 0; i < pipeline.Count; i++)
         {
-            HideMenu(pipeline[i]);
+            pipeline[i].GetComponent<PipeLineBlock>().HideMenu();
+
+            // HideShowMenu menu = pipeline[i].GetComponentInChildren<HideShowMenu>();
+            // menu.HideMenu();
         }
 
-    }
-
-    void HideMenu(GameObject filter)
-    {
-        HideShowMenu menu = filter.GetComponentInChildren<HideShowMenu>();
-        menu.HideMenu();
     }
 
     public void RegisterObject(GameObject g)
@@ -171,5 +173,10 @@ public class PipelineController : MonoBehaviour
         // Dictionary<GameObject> voeg hierin toe
         // Of
         // List<GameObject> Pipeline
+    }
+
+    public void AddObjectToRegistry(GameObject g)
+    {
+        targetObjects.Add(g);
     }
 }

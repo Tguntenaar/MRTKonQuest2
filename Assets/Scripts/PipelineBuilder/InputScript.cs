@@ -7,16 +7,18 @@ public class InputScript : MonoBehaviour
 {
 
     public GameObject dataObject;
+    public GameObject[] dataObjects;
+
+    private PipelineController pipeline;
 
     // Start is called before the first frame update
     void Start()
     {
+        pipeline = transform.parent.GetComponentInChildren<PipelineController>();
         if (dataObject != null)
         {
             GameObject cylinder = Instantiate(dataObject);
-
-            PipelineController p = transform.parent.GetComponentInChildren<PipelineController>();
-            p.RegisterObject(cylinder);
+            pipeline.RegisterObject(cylinder);
         }
 
     }
