@@ -30,6 +30,7 @@ public class ExitZone : MonoBehaviour
         {
             // The filter object tis the cube parent  which we want to place on the exit zone position 
             collidedWithExitzone.transform.parent.transform.position = transform.position;
+            collidedWithExitzone.transform.parent.transform.rotation = transform.rotation;
         }
         // Remove exit zone
         Debug.Log("Destroy exitZone");

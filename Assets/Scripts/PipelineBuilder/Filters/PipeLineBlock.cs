@@ -36,10 +36,14 @@ public class PipeLineBlock : MonoBehaviour
         switch (transform.name)
         {
             case "RGBAFilter":
-
-
+                ShowMenu();
                 RGBAFilter rgba = transform.GetComponentInChildren<RGBAFilter>();
+                Debug.Log(rgba.name);
+                Debug.Log(transform.name);
+                Debug.Log(rgba.TargetRenderer.transform.name);
+                // FIXME: null reference when Menu is disabled
                 rgba.TargetRenderer.transform.gameObject.SetActive(false);
+                // set to cylinder
                 rgba.TargetRenderer = targetData.GetComponent<Renderer>();
                 break;
             // case "":
@@ -56,6 +60,7 @@ public class PipeLineBlock : MonoBehaviour
     {
         transform.position = position;
         transform.rotation = rotation;
+        // transform.localScale = 
     }
 
     public void HideMenu()
@@ -63,6 +68,12 @@ public class PipeLineBlock : MonoBehaviour
         Debug.Log("HideMenu " + transform.name);
         HideShowMenu hsm = transform.GetComponentInChildren<HideShowMenu>();
         hsm.HideMenu();
+    }
+
+    public void ShowMenu()
+    {
+        HideShowMenu hsm = transform.GetComponentInChildren<HideShowMenu>();
+        hsm.ShowMenu();
     }
 
     // Gets called when data object is placed in Filterbox;

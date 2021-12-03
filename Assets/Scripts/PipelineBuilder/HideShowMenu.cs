@@ -36,6 +36,7 @@ public class HideShowMenu : MonoBehaviour
     }
 
     public void ToggleHideShowMenu() => menu.SetActive(!menu.activeSelf);
+    public void ShowMenu() => menu.SetActive(true);
     public void HideMenu() => menu.SetActive(false);
 
     public void PlaceAboveFilterBox()

@@ -26,11 +26,12 @@ public class SpawnFilterBlocks : MonoBehaviour
         // GameObject spawned = Instantiate(filterPrefab, pipeline.transform, instantiateInWorldSpace);
         // position is to 10cm to the right of the handmenu / rotation is the same
         Transform parentTransform = transform.parent.transform.parent.transform.parent.transform;
+        parentTransform = pipeline.transform;
         Debug.Log(parentTransform.name);
-        Vector3 position = parentTransform.position + new Vector3(0.1f, 0, 0);
+        Vector3 position = parentTransform.position + new Vector3(0.1f, 0.15f, 0);
         Quaternion rotation = parentTransform.rotation;
 
-        GameObject spawned = Instantiate(filterPrefab, position, rotation, parentTransform);
+        GameObject spawned = Instantiate(filterPrefab, position, rotation, pipeline.transform);
         spawned.transform.parent = parentTransform.parent;
 
         // ObjectManipulator om = spawned.GetComponent<ObjectManipulator>();

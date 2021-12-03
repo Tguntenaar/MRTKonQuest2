@@ -17,7 +17,10 @@ public class InputScript : MonoBehaviour
         pipeline = transform.parent.GetComponentInChildren<PipelineController>();
         if (dataObject != null)
         {
-            GameObject cylinder = Instantiate(dataObject);
+            var position = transform.localPosition + Vector3.forward;
+            // Instantiate(dataObject, position, transform.rotation, pipeline.transform.parent.transform);
+            GameObject cylinder = Instantiate(dataObject, position, transform.rotation, pipeline.transform.parent.transform.parent.transform);
+            // Instantiate(dataObject);
             pipeline.RegisterObject(cylinder);
         }
 

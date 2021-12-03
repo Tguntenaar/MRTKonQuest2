@@ -62,7 +62,10 @@ public class PipelineController : MonoBehaviour
                 pipeline.Add(filter);
                 SnapObjectIntoPosition(collidedWithDropzone);
                 MoveDropZoneToRight(1);
+                HideAllMenusInPipeline();
 
+                ///////////////////////////////////////////////////
+                // TEMP for cylinder input v2
                 if (filter.GetComponent<ExtendedProperties>() != null)
                 {
                     // Dataobject block put into pipeline
@@ -73,6 +76,8 @@ public class PipelineController : MonoBehaviour
                     // Single Object in input
                     filter.GetComponent<PipeLineBlock>().RegisterTargetData(targetData);
                 }
+                ///////////////////////////////////////////////////
+
 
                 // DropZone Position After Adding to Dropzone
                 MoveFilterToPosition(pipeline.Count, transform);
@@ -99,7 +104,7 @@ public class PipelineController : MonoBehaviour
                 PipelineToUI();
             }
         }
-        HideAllMenusInPipeline();
+
         // HideAllMenusInPipeline();
         /*
             Else doe niks hier en doe het in exit zone waar je dit dropzone object zoekt
@@ -128,10 +133,11 @@ public class PipelineController : MonoBehaviour
     {
         // PipeLineBlock pb = collider.transform.parent.GetComponentInChildren<PipeLineBlock>();
         // pb.SnapIntoPosition(transform.position, transform.rotation);
-
+        InputScript iscript = transform.parent.GetComponentInChildren<InputScript>();
         // From Cube To FilterBlock Note: Every Filter / Object Block needs a child with boxcollider with Tag SnapObject
         collider.transform.parent.transform.position = transform.position;
         collider.transform.parent.transform.rotation = transform.rotation;
+        collider.transform.parent.transform.localScale = new Vector3(1, 1, 1);
     }
 
     public void MoveDropZoneToRight(int amount)
