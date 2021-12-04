@@ -1078,8 +1078,10 @@ MonoBehaviour:
   textMeshMin: {fileID: 268276044168488881}
   textMeshMax: {fileID: 268276045193355462}
   textMeshMagnitude: {fileID: 5087454227790779969}
-  s1: {fileID: 268276046111266763}
-  s2: {fileID: 268276045934687744}
+  pinch1: {fileID: 268276046111266763}
+  pinch2: {fileID: 268276045934687744}
+  Max: 0
+  Min: 0
   magnitudeSlider: {fileID: 5087454227151349293}
 --- !u!1 &268276044715131530
 GameObject:
@@ -10182,7 +10184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a627d88e651336d4c861b0e776943c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exitZonePrefab: {fileID: 0}
+  exitZonePrefab: {fileID: 1456601225219403673, guid: 3b335d8e6ce4133498003acb0a0c467d, type: 3}
 --- !u!1 &5087454228026878244
 GameObject:
   m_ObjectHideFlags: 0

@@ -1045,10 +1045,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMeshMin: {fileID: 2924805448074892747}
-  magnifier: 1
   textMeshMax: {fileID: 2924805449066107580}
-  s1: {fileID: 2924805450026984881}
-  s2: {fileID: 2924805449799140474}
+  textMeshMagnitude: {fileID: 0}
+  pinch1: {fileID: 2924805450026984881}
+  pinch2: {fileID: 2924805449799140474}
+  magnitudeSlider: {fileID: 0}
 --- !u!1 &2924805448553829591
 GameObject:
   m_ObjectHideFlags: 0

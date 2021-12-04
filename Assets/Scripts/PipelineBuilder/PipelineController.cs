@@ -11,7 +11,7 @@ public class PipelineController : MonoBehaviour
     public Material m1;
     public Material m2;
 
-    private Collider collidedWithDropzone;
+    private Collider dropzoneCollider;
 
     public List<GameObject> GetPipeline() => pipeline;
 
@@ -38,7 +38,7 @@ public class PipelineController : MonoBehaviour
         if (other.CompareTag("SnapObject"))
         {
             GetComponent<Renderer>().material = m1;
-            collidedWithDropzone = other;
+            dropzoneCollider = other;
         }
     }
 
@@ -47,7 +47,7 @@ public class PipelineController : MonoBehaviour
         if (other.CompareTag("SnapObject"))
         {
             GetComponent<Renderer>().material = m2;
-            collidedWithDropzone = null;
+            dropzoneCollider = null;
         }
     }
 
@@ -55,27 +55,28 @@ public class PipelineController : MonoBehaviour
     {
         Debug.Log("Drop in zone called");
         Debug.Log(filter.name);
-        if (collidedWithDropzone != null)
+
+        if (dropzoneCollider != null && dropzoneCollider.transform.parent.gameObject.GetInstanceID() == filter.GetInstanceID())
         {
             if (!pipeline.Contains(filter))
             {
                 pipeline.Add(filter);
-                SnapObjectIntoPosition(collidedWithDropzone);
+                SnapObjectIntoPosition(dropzoneCollider);
                 MoveDropZoneToRight(1);
                 HideAllMenusInPipeline();
 
                 ///////////////////////////////////////////////////
                 // TEMP for cylinder input v2
-                if (filter.GetComponent<ExtendedProperties>() != null)
-                {
-                    // Dataobject block put into pipeline
-                    filter.GetComponent<PipelineController>().AddObjectToRegistry(filter);
-                }
-                else
-                {
-                    // Single Object in input
-                    filter.GetComponent<PipeLineBlock>().RegisterTargetData(targetData);
-                }
+                // if (filter.GetComponent<ExtendedProperties>() != null)
+                // {
+                //     // Dataobject block put into pipeline
+                //     filter.GetComponent<PipelineController>().AddObjectToRegistry(filter);
+                // }
+                // else
+                // {
+                // Single Object in input
+                filter.GetComponent<PipeLineBlock>().RegisterTargetData(targetData);
+                // }
                 ///////////////////////////////////////////////////
 
 

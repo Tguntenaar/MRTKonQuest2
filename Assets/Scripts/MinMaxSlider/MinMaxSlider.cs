@@ -17,14 +17,27 @@ public class MinMaxSlider : MonoBehaviour
     [SerializeField]
     private TextMeshPro textMeshMagnitude = null;
 
-    public PinchSlider s1;
-    public PinchSlider s2;
+    public PinchSlider pinch1;
+    public PinchSlider pinch2;
+
+    [HideInInspector]
+    public float Max;
+    [HideInInspector]
+    public float Min;
 
     public PinchSlider magnitudeSlider;
 
     private int magnifier = 100;
 
-
+    void Awake()
+    {
+        // PinchSlider[] sliders = transform.GetComponentsInChildren<PinchSlider>();
+        // if (pinch1 == null || pinch2 == null)
+        // {
+        //     pinch1 = sliders[0];
+        //     pinch2 = sliders[1];
+        // }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -33,9 +46,15 @@ public class MinMaxSlider : MonoBehaviour
         {
             magnitudeSlider.SliderValue = 0.1f;
         }
+        // PinchSlider[] sliders = transform.GetComponentsInChildren<PinchSlider>();
+        // if (pinch1 == null || pinch2 == null)
+        // {
+        //     pinch1 = sliders[0];
+        //     pinch2 = sliders[1];
+        // }
     }
 
-    public void UpdateUI(float s1, float s2)
+    public void UpdateUI(float pinch1, float pinch2)
     {
         if (textMeshMin == null)
         {
@@ -51,8 +70,8 @@ public class MinMaxSlider : MonoBehaviour
         if (textMeshMin != null && textMeshMax != null)
         {
             int magnitude = GetMagnitude();
-            textMeshMin.text = $"{s1 * magnitude:F2}";
-            textMeshMax.text = $"{s2 * magnitude:F2}";
+            textMeshMin.text = $"{pinch1 * magnitude:F2}";
+            textMeshMax.text = $"{pinch2 * magnitude:F2}";
 
         }
     }
@@ -60,20 +79,24 @@ public class MinMaxSlider : MonoBehaviour
     public void OnSliderUpdated(SliderEventData eventData)
     {
         // Debug.Log("OnSliderUpdated");
-        if (s1.SliderValue < s2.SliderValue)
+        if (pinch1.SliderValue < pinch2.SliderValue)
         {
-            UpdateUI(s1.SliderValue, s2.SliderValue);
+            Min = pinch1.SliderValue;
+            Max = pinch2.SliderValue;
+            UpdateUI(pinch1.SliderValue, pinch2.SliderValue);
         }
         else
         {
-            UpdateUI(s2.SliderValue, s1.SliderValue);
+            Min = pinch2.SliderValue;
+            Max = pinch1.SliderValue;
+            UpdateUI(pinch2.SliderValue, pinch1.SliderValue);
         }
     }
 
     public void UpdateMagnitudeUI(SliderEventData eventData)
     {
         textMeshMagnitude.text = $"Magnitude: {GetMagnitude()}";
-        UpdateUI(s1.SliderValue, s2.SliderValue);
+        UpdateUI(pinch1.SliderValue, pinch2.SliderValue);
     }
 
     int GetMagnitude()

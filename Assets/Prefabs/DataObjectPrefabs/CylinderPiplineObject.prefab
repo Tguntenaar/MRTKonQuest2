@@ -4709,6 +4709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5930878765091013323}
+  - component: {fileID: 6850160098365200191}
   m_Layer: 0
   m_Name: PropertyControls
   m_TagString: Untagged
@@ -4734,6 +4735,21 @@ Transform:
   m_Father: {fileID: 5930878763817224408}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6850160098365200191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5930878765091013320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bb08df43da21c64fbc24bdae2d32c95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heightSlider: {fileID: 5930878765410768166}
+  radiusSlider: {fileID: 5930878765804062957}
+  cylinder: {fileID: 0}
 --- !u!1 &5930878765161991745
 GameObject:
   m_ObjectHideFlags: 0
@@ -5545,10 +5561,10 @@ MonoBehaviour:
   OnValueUpdated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: IntegerManipulator, Assembly-CSharp
-        m_MethodName: UpdateUI
-        m_Mode: 1
+      - m_Target: {fileID: 6850160098365200191}
+        m_TargetAssemblyTypeName: AdjustCylinder, Assembly-CSharp
+        m_MethodName: AdjustHeight
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7947,10 +7963,10 @@ MonoBehaviour:
   OnValueUpdated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: IntegerManipulator, Assembly-CSharp
-        m_MethodName: UpdateUI
-        m_Mode: 1
+      - m_Target: {fileID: 6850160098365200191}
+        m_TargetAssemblyTypeName: AdjustCylinder, Assembly-CSharp
+        m_MethodName: AdjustRadius
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

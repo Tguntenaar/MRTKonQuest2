@@ -2470,9 +2470,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textMeshMin: {fileID: 4981930128231186651}
   textMeshMax: {fileID: 4981930127209170860}
-  magnifier: 1
-  s1: {fileID: 4981930126826860705}
-  s2: {fileID: 4981930127019430250}
+  textMeshMagnitude: {fileID: 0}
+  pinch1: {fileID: 4981930126826860705}
+  pinch2: {fileID: 4981930127019430250}
+  magnitudeSlider: {fileID: 0}
 --- !u!1 &4981930127786328519
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,13 @@ public class PipeLineBlock : MonoBehaviour
 
     public GameObject exitZonePrefab;
 
+    HideShowMenu hsm;
+
+    void Start()
+    {
+        hsm = transform.GetComponentInChildren<HideShowMenu>();
+    }
+
     /* This function is not used anymore */
     void HandleOnManipulationEnded(ManipulationEventData eventData)
     {
@@ -33,22 +40,30 @@ public class PipeLineBlock : MonoBehaviour
     public void RegisterTargetData(GameObject targetData)
     {
         Debug.Log("RegisterTargetData");
+        // If menu disabled can't find its components
+        ShowMenu();
+
         switch (transform.name)
         {
             case "RGBAFilter":
-                ShowMenu();
                 RGBAFilter rgba = transform.GetComponentInChildren<RGBAFilter>();
                 Debug.Log(rgba.name);
                 Debug.Log(transform.name);
                 Debug.Log(rgba.TargetRenderer.transform.name);
-                // FIXME: null reference when Menu is disabled
+                // null reference when Menu is disabled
                 rgba.TargetRenderer.transform.gameObject.SetActive(false);
                 // set to cylinder
                 rgba.TargetRenderer = targetData.GetComponent<Renderer>();
                 break;
-            // case "":
-            // break;
+            case "CylinderPipelineObject":
+                Debug.Log(transform.name);
+                AdjustCylinder ac = transform.GetComponentInChildren<AdjustCylinder>();
+                Debug.Log("cylinder assigned");
+                ac.cylinder = targetData;
+                break;
             default:
+                Debug.Log("RegisteredDefault");
+
                 // FIXME:
                 // BaseFilter filter = transform.GetComponentInChildren<BaseFilter>();
                 // filter.TargetObject = targetData;
@@ -66,13 +81,11 @@ public class PipeLineBlock : MonoBehaviour
     public void HideMenu()
     {
         Debug.Log("HideMenu " + transform.name);
-        HideShowMenu hsm = transform.GetComponentInChildren<HideShowMenu>();
         hsm.HideMenu();
     }
 
     public void ShowMenu()
     {
-        HideShowMenu hsm = transform.GetComponentInChildren<HideShowMenu>();
         hsm.ShowMenu();
     }
 
