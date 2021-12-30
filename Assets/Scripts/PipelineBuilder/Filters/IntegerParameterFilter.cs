@@ -36,15 +36,22 @@ public class IntegerParameterFilter : MonoBehaviour
 
     }
 
+    float map(float sliderValue, float sliderStart, float sliderEnd, float b1, float b2)
+    {
+        return b1 + (sliderValue - sliderStart) * (b2 - b1) / (sliderEnd - sliderStart);
+    }
+
     /* This gets called on slider change. */
     public void UpdateUI()
     {
         if (pinchSlider != null) // gets called once at wake probably because give a null ref exception only 1 time
         {
-            int baseValue = minValue;
-            int delta = maxValue - minValue;
-            int total = baseValue + (int)Math.Round(delta * pinchSlider.SliderValue);
-            t.text = $"Value: {total}";
+            // int baseValue = minValue;
+            // int delta = maxValue - minValue;
+            // int total = baseValue + (int)Math.Round(delta * pinchSlider.SliderValue);
+            float total = map(pinchSlider.SliderValue, 0, 1, minValue, maxValue);
+            int integer = (int)Math.Round(total);
+            t.text = $"Value: {integer}";
         }
     }
 }

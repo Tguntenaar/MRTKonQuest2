@@ -17,6 +17,10 @@ public class AdjustCylinder : MonoBehaviour
 
     public GameObject cylinder;
 
+
+    float minScaleConstraint = 0.01f; // 10 keer zo klein
+    float maxScaleConstraint = 0.5f; // 5 keer zo groot
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,12 +35,19 @@ public class AdjustCylinder : MonoBehaviour
 
     float GetHeight()
     {
-        return heightSlider.SliderValue * 10 + 0.1f;
+        float height = map(heightSlider.SliderValue, 0, 1, minScaleConstraint, maxScaleConstraint);
+        return height;
     }
 
     float GetRadius()
     {
-        return radiusSlider.SliderValue * 10 + 0.1f;
+        float radius = map(radiusSlider.SliderValue, 0, 1, minScaleConstraint, maxScaleConstraint);
+        return radius;
+    }
+
+    float map(float sliderValue, float sliderStart, float sliderEnd, float cylinderStart, float cylinderEnd)
+    {
+        return cylinderStart + (sliderValue - sliderStart) * (cylinderEnd - cylinderStart) / (sliderEnd - sliderStart);
     }
 
     public void AdjustHeight(SliderEventData data)

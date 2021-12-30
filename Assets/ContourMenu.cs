@@ -13,6 +13,8 @@ public class ContourMenu : MonoBehaviour
     public GameObject EntryPrefab;
     public GameObject SelectedEntry;
     public List<GameObject> collection = new List<GameObject>();
+
+    // FIXME: test
     public TextMeshPro tMPro;
 
     // Start is called before the first frame update
@@ -40,8 +42,6 @@ public class ContourMenu : MonoBehaviour
 
     }
 
-
-
     public float Remap(float value, float from1, float to1, float from2, float to2)
     {
         return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
@@ -59,7 +59,7 @@ public class ContourMenu : MonoBehaviour
 
     public void TestShowStep()
     {
-        tMPro.text = CalculateSteps().ToString("F0");
+        // tMPro.text = CalculateSteps().ToString("F0"); TODO: infinity
     }
 
     // On Button Click

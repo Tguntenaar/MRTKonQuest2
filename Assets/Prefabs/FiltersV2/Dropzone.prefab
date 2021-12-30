@@ -110,7 +110,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m1: {fileID: 2100000, guid: a3dea5d0438fea94bbfcf5119c2b295f, type: 2}
-  m2: {fileID: 2100000, guid: 28a37a21a0feae54d82921f46b2f4c50, type: 2}
+  m2: {fileID: 2100000, guid: f872839894e3ca54aba10f236b03f1b3, type: 2}
+  targetData: {fileID: 0}
+  targetObjects: []
 --- !u!1 &7597184605112946929
 GameObject:
   m_ObjectHideFlags: 0
