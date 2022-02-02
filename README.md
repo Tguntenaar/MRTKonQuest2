@@ -8,6 +8,8 @@ An exploration to manipulate parameters of VTK data structures within a VR envir
 https://www.overleaf.com/read/cdknqjhfrmtk
 ```
 
+![](mix2.png)
+
 ### Requirements
 
 * Unity `2020.x.x` >= `2020.3.18`
