@@ -7,7 +7,6 @@ An exploration to manipulate parameters of VTK data structures within a VR envir
 ```
 https://www.overleaf.com/read/cdknqjhfrmtk
 ```
-
 ![](mix2.png)
 
 ### Requirements
@@ -57,4 +56,8 @@ This can be done on the Oculus as well as the Game window.
 * VR
 	* Oculus Quest 2 OpenXR
 
+### Link to demo video
+```
+https://youtu.be/TmMH6R1NaY8
+```
 
